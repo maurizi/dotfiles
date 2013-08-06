@@ -1,0 +1,6 @@
+[submodule "bundle/jshint2.vim"]
+	path = bundle/jshint2.vim
+	url = git@github.com:Shutnik/jshint2.vim.git
+[submodule "bundle/python-mode"]
+	path = bundle/python-mode
+	url = git@github.com:klen/python-mode.git

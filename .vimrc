@@ -51,6 +51,15 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
+
+" Set html files to have 2 space tabs
+augroup myHtml
+    au!
+    au FileType html,htmldjango setlocal ts=2
+    au FileType html,htmldjango setlocal sts=2
+    au FileType html,htmldjango setlocal sw=2
+augroup END
+
 " Backups/temp files in single directory
 set backup
 set backupdir=~/.vim/backup
@@ -71,4 +80,3 @@ command W w
 command Q q
 command WQ wq
 command Wq wq
-
