@@ -71,6 +71,11 @@ set directory=~/.vim/tmp
 set ignorecase
 set smartcase
 
+" Highlight searches, disable highlights with \q
+set incsearch
+set hlsearch
+nmap \q :nohlsearch<CR>
+
 set noerrorbells
 
 " Save code folding state
@@ -82,3 +87,8 @@ command W w
 command Q q
 command WQ wq
 command Wq wq
+
+" Move up/down by screen row not text line, useful for files with one REALLLY
+" long line
+nmap j gj
+nmap k gk
