@@ -43,14 +43,16 @@ let g:pymode_lint_checker = "pyflakes,pep8"
 let g:pymode_lint_minheight = 1
 
 " JS linting w/ JSHint on save https://github.com/Shutnik/jshint2.vim
-" In autocomd because it  breaks python linting otherwise
-autocmd FileType javascript let g:jshint2_save = 1
+let g:jshint2_save = 1
 
 " Code completion for various web languages (CTRL+X -> CTRL+O to open)
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
+" Remap commands for CommandT https://github.com/wincent/Command-T
+nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>f :CommandTBuffer<CR>
 
 " Set html files to have 2 space tabs
 augroup myHtml
@@ -72,8 +74,8 @@ set smartcase
 set noerrorbells
 
 " Save code folding state
-autocmd BufWinLeave ?* mkview
-autocmd BufWinEnter ?* silent loadview
+au BufWinLeave ?* mkview
+au BufWinEnter ?* silent loadview
 
 " Map W and Q to w and q for typos
 command W w
