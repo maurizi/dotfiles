@@ -39,11 +39,8 @@ filetype plugin indent on
 syntax on
 
 " Python-mode https://github.com/klen/python-mode
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_minheight = 1
-
-" JS linting w/ JSHint on save https://github.com/Shutnik/jshint2.vim
-let g:jshint2_save = 1
+" Linting provided by syntastic https://github.com/scrooloose/syntastic
+let g:pymode_lint=0
 
 " Code completion for various web languages (CTRL+X -> CTRL+O to open)
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS

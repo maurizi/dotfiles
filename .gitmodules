@@ -1,6 +1,3 @@
-[submodule "bundle/jshint2.vim"]
-	path = bundle/jshint2.vim
-	url = git@github.com:Shutnik/jshint2.vim.git
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
 	url = git@github.com:klen/python-mode.git
@@ -29,3 +26,6 @@
 [submodule "bundle/commandcaps"]
 	path = bundle/commandcaps
 	url = https://github.com/takac/vim-commandcaps
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
