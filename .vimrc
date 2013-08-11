@@ -47,6 +47,10 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
+" have tComment https://github.com/tomtom/tcomment_vim always put the
+" comment in the first column
+let g:tcommentOptions = {'col':1}
+
 " Remap commands for CommandT https://github.com/wincent/Command-T
 nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>f :CommandTBuffer<CR>
@@ -87,8 +91,17 @@ nmap \q :nohlsearch<CR>
 set noerrorbells
 
 " Save code folding state
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
+set viewoptions-=options
+augroup vimrc
+    autocmd BufWinLeave *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      mkview
+    \|  endif
+    autocmd BufWinEnter *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      silent loadview
+    \|  endif
+augroup END
 
 " Move up/down by screen row not text line, useful for files with one REALLLY
 " long line
