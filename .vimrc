@@ -20,7 +20,7 @@ set pastetoggle=<F2>
 
 set backspace=indent,eol,start
 
-"Show tabs and tailing space
+"Show tabs and trailing space
 set list
 set listchars=tab:>.,trail:.
 
