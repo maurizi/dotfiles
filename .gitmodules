@@ -26,3 +26,6 @@
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = git@github.com:mileszs/ack.vim.git
+[submodule "bundle/commandcaps"]
+	path = bundle/commandcaps
+	url = https://github.com/takac/vim-commandcaps

@@ -93,12 +93,6 @@ set noerrorbells
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
 
-" Map W and Q to w and q for typos
-command W w
-command Q q
-command WQ wq
-command Wq wq
-
 " Move up/down by screen row not text line, useful for files with one REALLLY
 " long line
 nmap j gj
