@@ -20,3 +20,9 @@
 	path = bundle/tComment
 	url = git@github.com:vim-scripts/tComment.git
 	ignore = dirty
+[submodule "bundle/airline"]
+	path = bundle/airline
+	url = git@github.com:bling/vim-airline.git
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = git@github.com:mileszs/ack.vim.git

@@ -54,6 +54,17 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>f :CommandTBuffer<CR>
 
+" Settings for airline (lightweight powerline)
+" https://github.com/bling/vim-airline
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+set laststatus=2
+set ttimeoutlen=50
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_branch_prefix = '⎇  '
+
 " Set html files to have 2 space tabs
 augroup myHtml
     au!
