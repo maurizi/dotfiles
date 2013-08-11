@@ -10,7 +10,7 @@ For ack.vim you need to install ```ack```
 sudo apt-get install ack-grep
 ```
 
-Command-t must be compiled in order to run, and requires ruby and a rby compatible vim.
+Command-t must be compiled in order to run, and requires ruby and a ruby compatible vim.
 To install run:
 ```
   cd ~/.vim/bundle/command-t/ruby/command-t
