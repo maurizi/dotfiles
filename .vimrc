@@ -22,13 +22,66 @@ set backspace=indent,eol,start
 
 "Show tabs and trailing space
 set list
-set listchars=tab:>.,trail:.
+set listchars=tab:>·,trail:␣
 
 "Highlight matching )
 set showmatch
 
+" Use relative line numbers
+set relativenumber
+
+" Ignore case on search
+set ignorecase
+set smartcase
+
+" Use standard Perl/Python regex syntax
+nnoremap / /\v
+vnoremap / /\v
+
+" Highlight searches, disable highlights with \q
+set incsearch
+set hlsearch
+nmap \q :nohlsearch<CR>
+
 " Pathogen load
 filetype off
+
+" Set html files to have 2 space tabs
+augroup myHtml
+    au!
+    au FileType html,htmldjango setlocal ts=2
+    au FileType html,htmldjango setlocal sts=2
+    au FileType html,htmldjango setlocal sw=2
+augroup END
+
+" Backups/temp files in single directory
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+
+set noerrorbells
+
+" Save code folding state
+set viewoptions-=options
+augroup vimrc
+    autocmd BufWinLeave *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      mkview
+    \|  endif
+    autocmd BufWinEnter *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      silent loadview
+    \|  endif
+augroup END
+
+" Move up/down by screen row not text line, useful for files with one REALLLY
+" long line
+nmap j gj
+nmap k gk
+
+set wrap
+set textwidth=79
+set formatoptions=qrn1
 
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -66,44 +119,5 @@ let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_branch_prefix = '⎇  '
 
-" Set html files to have 2 space tabs
-augroup myHtml
-    au!
-    au FileType html,htmldjango setlocal ts=2
-    au FileType html,htmldjango setlocal sts=2
-    au FileType html,htmldjango setlocal sw=2
-augroup END
-
-" Backups/temp files in single directory
-set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
-
-" Ignore case on search
-set ignorecase
-set smartcase
-
-" Highlight searches, disable highlights with \q
-set incsearch
-set hlsearch
-nmap \q :nohlsearch<CR>
-
-set noerrorbells
-
-" Save code folding state
-set viewoptions-=options
-augroup vimrc
-    autocmd BufWinLeave *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      mkview
-    \|  endif
-    autocmd BufWinEnter *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      silent loadview
-    \|  endif
-augroup END
-
-" Move up/down by screen row not text line, useful for files with one REALLLY
-" long line
-nmap j gj
-nmap k gk
+" Mapping for gundo http://sjl.bitbucket.org/gundo.vim/
+nnoremap <F5> :GundoToggle<CR>
