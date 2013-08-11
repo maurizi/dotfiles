@@ -92,8 +92,14 @@ filetype plugin indent on
 syntax on
 
 " Python-mode https://github.com/klen/python-mode
-" Linting provided by syntastic https://github.com/scrooloose/syntastic
 let g:pymode_lint=0
+
+" Linting provided by syntastic https://github.com/scrooloose/syntastic
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=4
 
 " Code completion for various web languages (CTRL+X -> CTRL+O to open)
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
