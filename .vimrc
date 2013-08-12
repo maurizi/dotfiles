@@ -101,6 +101,12 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=4
 
+" Auto-close quickfix window when it's the only thing left
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END
+
 " default highlighting sucks (white on yellow)
 hi Search term=reverse ctermbg=11 ctermfg=000 guibg=Yellow guifg=Black
 
@@ -116,6 +122,15 @@ let g:tcommentOptions = {'col':1}
 " Remap commands for CommandT https://github.com/wincent/Command-T
 nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>f :CommandTBuffer<CR>
+
+" Auto-open nerdtree (https://github.com/scrooloose/nerdtree) when vim is
+" opened without files, and autoclose when it is the only thing left
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter *
+    \   if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")
+    \|      q
+    \|  endif
+map <C-g> :NERDTreeToggle<CR>
 
 " Settings for airline (lightweight powerline)
 " https://github.com/bling/vim-airline
