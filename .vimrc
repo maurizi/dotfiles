@@ -101,6 +101,9 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=4
 
+" default highlighting sucks (white on yellow)
+hi Search term=reverse ctermbg=11 ctermfg=000 guibg=Yellow guifg=Black
+
 " Code completion for various web languages (CTRL+X -> CTRL+O to open)
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
