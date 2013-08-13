@@ -34,10 +34,6 @@ set relativenumber
 set ignorecase
 set smartcase
 
-" Use standard Perl/Python regex syntax
-nnoremap / /\v
-vnoremap / /\v
-
 " Highlight searches, disable highlights with \q
 set incsearch
 set hlsearch
@@ -131,6 +127,7 @@ autocmd bufenter *
     \|      q
     \|  endif
 map <C-g> :NERDTreeToggle<CR>
+map <C-f> :NERDTreeFind<CR>
 
 " Settings for airline (lightweight powerline)
 " https://github.com/bling/vim-airline
