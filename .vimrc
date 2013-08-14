@@ -142,3 +142,7 @@ let g:airline_branch_prefix = '⎇  '
 
 " Mapping for gundo http://sjl.bitbucket.org/gundo.vim/
 nnoremap <F5> :GundoToggle<CR>
+
+" Timekeeper (https://github.com/PAntoine/TimeKeeper)
+let g:TimeKeeperStartOnLoad = 1
+map <silent> <F8> :call TimeKeeper_ToggleTaskWindow()<cr>
