@@ -29,9 +29,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "sparkup"]
-	path = sparkup
-	url = git@github.com:rstacruz/sparkup.git
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
@@ -41,3 +38,6 @@
 [submodule "bundle/timekeeper"]
 	path = bundle/timekeeper
 	url = git@github.com:PAntoine/TimeKeeper.git
+[submodule "bundle/sparkup"]
+	path = bundle/sparkup
+	url = git@github.com:maurizi/vim-sparkup.git

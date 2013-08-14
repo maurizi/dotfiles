@@ -13,6 +13,7 @@ sudo apt-get install ack-grep
 Command-t must be compiled in order to run, and requires ruby and a ruby compatible vim.
 To install run:
 ```
+  sudo apt-get install ruby-dev build-essential
   cd ~/.vim/bundle/command-t/ruby/command-t
   ruby extconf.rb
   make
