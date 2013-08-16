@@ -79,6 +79,14 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 
+" Delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" Paste without yanking
+nnoremap <leader>p "_dP
+vnoremap <leader>p "_dP
+
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -92,6 +100,7 @@ let g:pymode_lint=0
 
 " Linting provided by syntastic https://github.com/scrooloose/syntastic
 let g:syntastic_python_checkers=['flake8']
+let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_loc_list=1
@@ -146,3 +155,7 @@ nnoremap <F5> :GundoToggle<CR>
 " Timekeeper (https://github.com/PAntoine/TimeKeeper)
 let g:TimeKeeperStartOnLoad = 1
 map <silent> <F8> :call TimeKeeper_ToggleTaskWindow()<cr>
+
+" Open Ggrep and Glog in a quickfix automatically
+nnoremap <leader>l :silent Glog<CR>
+autocmd QuickFixCmdPost *grep* cwindow
