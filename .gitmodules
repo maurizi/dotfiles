@@ -41,3 +41,6 @@
 [submodule "bundle/sparkup"]
 	path = bundle/sparkup
 	url = git@github.com:maurizi/vim-sparkup.git
+[submodule "bundle/multiple-cursors"]
+	path = bundle/multiple-cursors
+	url = git@github.com:terryma/vim-multiple-cursors.git
