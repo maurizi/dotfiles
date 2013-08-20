@@ -159,5 +159,5 @@ let g:TimeKeeperStartOnLoad = 1
 map <silent> <F8> :call TimeKeeper_ToggleTaskWindow()<cr>
 
 " Open Ggrep and Glog in a quickfix automatically
-nnoremap <leader>l :silent Glog<CR>
+nnoremap <leader>l :silent Glog \| redraw!<CR>
 autocmd QuickFixCmdPost *grep* cwindow
