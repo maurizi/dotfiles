@@ -89,6 +89,11 @@ vnoremap <leader>d "_d
 nnoremap <leader>p "_dP
 vnoremap <leader>p "_dP
 
+" Mouse usage enabled in normal mode.
+set mouse=n
+" " Set xterm2 mouse mode to allow resizing of splits with mouse inside Tmux.
+set ttymouse=xterm2
+
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -161,3 +166,8 @@ map <silent> <F8> :call TimeKeeper_ToggleTaskWindow()<cr>
 " Open Ggrep and Glog in a quickfix automatically
 nnoremap <leader>l :silent Glog \| redraw!<CR>
 autocmd QuickFixCmdPost *grep* cwindow
+
+" Set theme (https://github.com/altercation/vim-colors-solarized)
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
