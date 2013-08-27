@@ -52,8 +52,11 @@ augroup myHtml
     au FileType html,htmldjango setlocal sw=2
 augroup END
 
-" Backups/temp files in single directory
+" Backups/temp/undo files in single directory
 set backup
+set undofile
+set undolevels=300
+set undodir=~/.vim/undo
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
