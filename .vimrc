@@ -105,6 +105,9 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 
+" Sparkup (https://github.com/maurizi/vim-sparkup) next conflicts with multiple cursors
+let g:sparkupNextMapping='<c-E>'
+
 " Python-mode https://github.com/klen/python-mode
 let g:pymode_lint=0
 
