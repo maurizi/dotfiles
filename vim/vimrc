@@ -1,6 +1,42 @@
 " Use Vim, not Vi settings
 set nocompatible
 
+filetype off
+
+" Set html files to have 2 space tabs
+augroup myHtml
+    au!
+    au FileType html,htmldjango setlocal ts=2
+    au FileType html,htmldjango setlocal sts=2
+    au FileType html,htmldjango setlocal sw=2
+augroup END
+
+" Vundle (https://github.com/gmarik/vundle)
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" Vundle manages itself
+Bundle 'gmarik/vundle'
+"Github
+Bundle 'mileszs/ack'
+Bundle 'bling/vim-airline'
+Bundle 'wincent/Command-T'
+Bundle 'takac/vim-commandcaps'
+Bundle 'sjl/gundo'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'scrooloose/nerdtree'
+Bundle 'klen/python-mode'
+Bundle 'tpope/vim-repeat'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'maurizi/sparkup'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+" vimscripts.org
+Bundle 'tComment'
+
+filetype plugin indent on
+syntax on
+
 "Tab settings
 set shiftwidth=4
 set softtabstop=4
@@ -40,17 +76,6 @@ set smartcase
 set incsearch
 set hlsearch
 nmap \q :nohlsearch<CR>
-
-" Pathogen load
-filetype off
-
-" Set html files to have 2 space tabs
-augroup myHtml
-    au!
-    au FileType html,htmldjango setlocal ts=2
-    au FileType html,htmldjango setlocal sts=2
-    au FileType html,htmldjango setlocal sw=2
-augroup END
 
 " Backups/temp/undo files in single directory
 set backup
@@ -94,16 +119,8 @@ vnoremap <leader>p "_dP
 
 " Mouse usage enabled in normal mode.
 set mouse=n
-" " Set xterm2 mouse mode to allow resizing of splits with mouse inside Tmux.
+" " Set xterm2 mouse mode to allow resizing of splits
 set ttymouse=xterm2
-
-execute pathogen#infect()
-execute pathogen#helptags()
-
-filetype on
-filetype plugin on
-filetype plugin indent on
-syntax on
 
 " Sparkup (https://github.com/maurizi/vim-sparkup) next conflicts with multiple cursors
 let g:sparkupNextMapping='<c-E>'
