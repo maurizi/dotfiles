@@ -1,12 +1,12 @@
 #!/bin/bash
-installers=("vim.sh")
+installers=("vim" "utils")
 for installer in "${installers[@]}"
 do
-    echo -n "Do you want to run $installer? "
+    echo -n "Do you want to install $installer? "
     read Arg
     case $Arg in
         y|Y|yes|Yes)
-            ./$installer
+            ./"$installer".sh
             ;;
         n|N|no|No)
              echo "Skipping $installer"
