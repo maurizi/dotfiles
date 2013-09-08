@@ -1,5 +1,5 @@
 #!/bin/bash
-installers=("vim" "utils")
+installers=("vim" "utils" "git-utils")
 for installer in "${installers[@]}"
 do
     echo -n "Do you want to install $installer? "

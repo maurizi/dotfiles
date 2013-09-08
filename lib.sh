@@ -12,7 +12,7 @@ install ()
     for (( i=0; i<${#files[@]}; i+=2))
     do
         local path="$DOTFILES/${files[$i]}"
-        local link=~/"${files[(($i+1))]:-${files[$i]}}"
+        local link=~/"${files[(($i+1))]}"
 
         paths+=($path)
         links+=($link)
