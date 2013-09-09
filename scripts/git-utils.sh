@@ -6,7 +6,8 @@ cloneAndLink iam-TJ/git-submodule-move git-submodule-move
 
 echo "Installing hub"
 sudo apt-get install rubygems
-sudo gem install hub
+sudo gem install hub >/dev/null
+rm -rf $DOTFILES/bin/hub
 hub hub standalone > $DOTFILES/bin/hub && chmod +x $DOTFILES/bin/hub
 
 # Autoload _git completion functions

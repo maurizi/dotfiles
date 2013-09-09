@@ -6,7 +6,7 @@ cd $DOTFILES/scripts
 source lib.sh
 
 installers=("vim" "utils" "git-utils")
-if [ -n $1 ]
+if [ -n "$1" ]
 then
     installers=( $1 )
 fi
