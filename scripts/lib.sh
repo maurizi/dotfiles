@@ -46,3 +46,31 @@ install ()
         ln -s $path $link
     done
 }
+
+cloneAndLink()
+{
+    local repo=$1
+    local path=$2
+    local alias=${3:-$2}
+    local name=$(basename $repo)
+
+    local url=""
+
+    echo "repo $repo path $path alias $alias"
+    if [[ $repo =~ ^[[:graph:]]+/[[:graph:]]+$ ]]
+    then
+        url=https://github.com/$repo.git
+    elif [[ $repo =~ ^[[:graph:]]+$ ]]
+    then
+        url=https://gitlab.internal.azavea.com/$repo.git
+    else
+        url=$repo
+    fi
+
+    echo "$url"
+    rm -rf $DOTFILES/tmp/$name
+    git clone $url $DOTFILES/tmp/$name
+
+    rm -rf $DOTFILES/bin/$alias
+    ln -s $DOTFILES/tmp/$name/$path $DOTFILES/bin/$alias
+}

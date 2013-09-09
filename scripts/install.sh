@@ -1,12 +1,22 @@
 #!/bin/bash
+
+DOTFILES=$(git rev-parse --show-toplevel);
+cd $DOTFILES/scripts
+
+source lib.sh
+
 installers=("vim" "utils" "git-utils")
+if [ -n $1 ]
+then
+    installers=( $1 )
+fi
 for installer in "${installers[@]}"
 do
     echo -n "Do you want to install $installer? "
     read Arg
     case $Arg in
         y|Y|yes|Yes)
-            ./"$installer".sh
+            $DOTFILES/scripts/"$installer".sh
             ;;
         n|N|no|No)
              echo "Skipping $installer"
