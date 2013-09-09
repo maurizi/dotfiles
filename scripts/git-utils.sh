@@ -4,6 +4,10 @@ source lib.sh
 echo "Installing git-submodule-move"
 cloneAndLink iam-TJ/git-submodule-move git-submodule-move
 
+echo "Installing git-hooks"
+cloneAndLink icefox/git-hooks git-hooks
+install "git/git_hooks" ".git_hooks"
+
 echo "Installing hub"
 sudo apt-get install rubygems
 sudo gem install hub >/dev/null

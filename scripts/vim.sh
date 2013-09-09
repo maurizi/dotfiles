@@ -4,6 +4,9 @@ source lib.sh
 files=("vim" ".vim" "vim/vimrc" ".vimrc")
 install "${files[@]}"
 
+echo "Installing rm-vimview"
+ln -sf $DOTFILES/vim/rm-vimview $DOTFILES/bin/rm-vimview
+
 if [ ! -e ~/.vim/bundle/vundle ]
 then
     echo "Cloning vundle"
