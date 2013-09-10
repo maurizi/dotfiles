@@ -100,7 +100,10 @@ set mouse=n
 set ttymouse=xterm2
 
 " Sparkup (https://github.com/maurizi/vim-sparkup) next conflicts with multiple cursors
+let g:sparkupExecuteMapping='<c-e>'
 let g:sparkupNextMapping='<c-E>'
+let g:sparkupMapsNormal=1
+let g:sparkupMaps=0
 
 " Python-mode https://github.com/klen/python-mode
 let g:pymode_lint=0
@@ -142,7 +145,7 @@ autocmd bufenter *
     \   if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")
     \|      q
     \|  endif
-map <C-g> :NERDTreeToggle<CR>
+map <C-d> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
 
 " Settings for airline (lightweight powerline)
