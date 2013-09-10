@@ -30,7 +30,7 @@ install ()
         read Arg
         case $Arg in
             y|Y|yes|Yes)
-                echo "deleting $toDelete"
+                echo "Deleting $toDelete"
                 rm -rf $toDelete
                 ;;
             n|N|no|No)
@@ -56,7 +56,6 @@ cloneAndLink()
 
     local url=""
 
-    echo "repo $repo path $path alias $alias"
     if [[ $repo =~ ^[[:graph:]]+/[[:graph:]]+$ ]]
     then
         url=https://github.com/$repo.git
@@ -67,9 +66,8 @@ cloneAndLink()
         url=$repo
     fi
 
-    echo "$url"
     rm -rf $DOTFILES/tmp/$name
-    git clone $url $DOTFILES/tmp/$name
+    git clone --quiet $url $DOTFILES/tmp/$name
 
     rm -rf $DOTFILES/bin/$alias
     ln -s $DOTFILES/tmp/$name/$path $DOTFILES/bin/$alias

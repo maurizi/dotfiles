@@ -9,8 +9,8 @@ cloneAndLink icefox/git-hooks git-hooks
 install "git/git_hooks" ".git_hooks"
 
 echo "Installing hub"
-sudo apt-get install rubygems
-sudo gem install hub >/dev/null
+sudo apt-get install -qqy rubygems
+sudo gem install -qy hub >/dev/null
 rm -rf $DOTFILES/bin/hub
 hub hub standalone > $DOTFILES/bin/hub && chmod +x $DOTFILES/bin/hub
 
