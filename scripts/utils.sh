@@ -1,7 +1,7 @@
 #!/bin/bash
 source lib.sh
 
-sudo apt-get install ack-grep
+sudo apt-get install -qqy ack-grep
 rm $DOTFILES/bin/ack
 ln -s $(which ack-grep) $DOTFILES/bin/ack
 
