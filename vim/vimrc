@@ -151,9 +151,7 @@ map <C-f> :NERDTreeFind<CR>
 
 " Settings for airline (lightweight powerline)
 " https://github.com/bling/vim-airline
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
+set t_Co=256
 set laststatus=2
 set ttimeoutlen=50
 let g:airline_left_sep = '▶'
