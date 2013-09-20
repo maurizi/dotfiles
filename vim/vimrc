@@ -100,10 +100,7 @@ set mouse=n
 set ttymouse=xterm2
 
 " Sparkup (https://github.com/maurizi/vim-sparkup) next conflicts with multiple cursors
-let g:sparkupExecuteMapping='<c-e>'
-let g:sparkupNextMapping='<c-E>'
 let g:sparkupMapsNormal=1
-let g:sparkupMaps=0
 
 " Python-mode https://github.com/klen/python-mode
 let g:pymode_lint=0
