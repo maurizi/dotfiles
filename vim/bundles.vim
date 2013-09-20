@@ -3,26 +3,30 @@ set nocompatible
 filetype off
 
 let g:vundle_default_git_proto = 'git'
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" Vundle manages itself
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/neobundle.vim/
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" NeoBundle manages itself
+NeoBundleFetch 'gmarik/vundle'
+NeoBundle 'Shougo/vimproc'
+
 "Github
-Bundle 'mileszs/ack.vim'
-Bundle 'bling/vim-airline'
-Bundle 'wincent/Command-T'
-Bundle 'takac/vim-commandcaps'
-Bundle 'sjl/gundo.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'tpope/vim-repeat'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'maurizi/vim-sparkup'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'wincent/Command-T'
+NeoBundle 'takac/vim-commandcaps'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'klen/python-mode'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'maurizi/sparkup', {'rtp': 'vim/'}
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-fugitive'
 " vimscripts.org
-Bundle 'tComment'
+NeoBundle 'tComment'
 
 filetype plugin indent on
+NeoBundleCheck
