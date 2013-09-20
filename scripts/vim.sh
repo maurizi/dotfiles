@@ -7,10 +7,11 @@ install "${files[@]}"
 echo "Installing rm-vimview"
 ln -sf $DOTFILES/vim/rm-vimview $DOTFILES/bin/rm-vimview
 
+rm -rf ~/.vim/bundle/*
 if [ ! -e ~/.vim/bundle/vundle ]
 then
-    echo "Cloning vundle"
-    git clone --quiet git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    echo "Cloning NeoBundle"
+    git clone --quiet git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
 vim -u ~/.vim/bundles.vim +BundleInstall +qall
 
