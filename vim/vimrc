@@ -64,6 +64,9 @@ set directory=~/.vim/tmp
 
 set noerrorbells
 
+set foldmethod=indent
+set foldnestmax=1
+
 " Save code folding state
 set viewoptions-=options
 augroup vimrc
@@ -104,6 +107,7 @@ let g:sparkupNextMapping='<c-E>'
 
 " Python-mode https://github.com/klen/python-mode
 let g:pymode_lint=0
+let g:pymode_folding=0
 
 " Linting provided by syntastic https://github.com/scrooloose/syntastic
 let g:syntastic_python_checkers=['flake8']
