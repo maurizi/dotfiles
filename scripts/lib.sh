@@ -66,8 +66,13 @@ cloneAndLink()
         url=$repo
     fi
 
-    rm -rf $DOTFILES/tmp/$name
-    git clone --quiet $url $DOTFILES/tmp/$name
+    if [ -d $DOTFILES/tmp/$name ] && git remote -v $DOTFILES/tmp/$name | grep -q $repo
+    then
+        git pull
+    else
+        rm -rf $DOTFILES/tmp/$name
+        git clone --quiet $url $DOTFILES/tmp/$name
+    fi
 
     rm -rf $DOTFILES/bin/$alias
     ln -s $DOTFILES/tmp/$name/$path $DOTFILES/bin/$alias
