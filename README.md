@@ -1,1 +1,1 @@
-To use run `./install.sh`
+To use run `./scripts/install.sh`
