@@ -12,9 +12,4 @@ then
     echo "Cloning NeoBundle"
     git clone --quiet git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
-vim -u ~/.vim/bundles.vim +BundleInstall +qall
-
-echo -n "Compiling command-t"
-pushd ~/.vim/bundle/Command-T/ruby/command-t >/dev/null
-(ruby extconf.rb >/dev/null && echo "..." && make >/dev/null && echo "Done") || echo "Can't compile Command-T"
-popd >/dev/null
+vim -u ~/.vim/bundles.vim +NeoBundleInstall +qall

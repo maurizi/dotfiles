@@ -8,12 +8,25 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " NeoBundle manages itself
 NeoBundleFetch 'gmarik/vundle'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+\ 'build' : {
+\     'windows' : 'make -f make_mingw32.mak',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\    },
+\ }
 
 "Github
-NeoBundle 'mileszs/ack.vim'
+NeoBundle 'mileszs/ack.vim', {'external_commands': 'ack'}
 NeoBundle 'bling/vim-airline'
-NeoBundle 'wincent/Command-T'
+NeoBundle 'wincent/Command-T', {
+\ 'disabled': !has('ruby'),
+\ 'build' : {
+\   'cygwin': 'cd ~/.vim/bundle/Command-T/ruby/command-t && ruby extconf.rb && make',
+\   'unix': 'cd ~/.vim/bundle/Command-T/ruby/command-t && ruby extconf.rb && make',
+\ }
+\}
 NeoBundle 'takac/vim-commandcaps'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
