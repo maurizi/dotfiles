@@ -47,7 +47,7 @@ install ()
     done
 }
 
-cloneAndLink()
+cloneAndLink ()
 {
     local repo=$1
     local path=$2
@@ -74,6 +74,5 @@ cloneAndLink()
         git clone --quiet $url $DOTFILES/tmp/$name
     fi
 
-    rm -rf $DOTFILES/bin/$alias
-    ln -s $DOTFILES/tmp/$name/$path $DOTFILES/bin/$alias
+    ln -sf $DOTFILES/tmp/$name/$path $DOTFILES/bin/$alias
 }
