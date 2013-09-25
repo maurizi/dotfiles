@@ -13,3 +13,4 @@ then
     git clone --quiet git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
 vim -u ~/.vim/bundles.vim +NeoBundleInstall +qall
+vim -u ~/.vim/bundles.vim +NeoBundleUpdate +qall
