@@ -87,7 +87,9 @@ augroup END
 nmap j gj
 nmap k gk
 
+" Map tab and shift-tab to next/prev in quickfix, useful for Syntastic and Ack
 nnoremap <tab> :cnext<CR>
+nnoremap <S-tab> :cprev<CR>
 
 set wrap
 set textwidth=79
