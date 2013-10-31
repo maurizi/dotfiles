@@ -103,6 +103,9 @@ vnoremap <leader>d "_d
 nnoremap <leader>p "_dP
 vnoremap <leader>p "_dP
 
+" Ignore the obvious things (also affects Command-T when installed)
+set wildignore+=*.o,*.obj,.git,*.pyc
+
 " Mouse usage enabled in normal mode.
 set mouse=n
 " " Set xterm2 mouse mode to allow resizing of splits
