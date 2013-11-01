@@ -51,6 +51,8 @@ NeoBundle 'scrooloose/nerdtree'
         \|  endif
     map <C-d> :NERDTreeToggle<CR>
     map <C-f> :NERDTreeFind<CR>
+    " Single-click to open directories, double-click to open files
+    let g:NERDTreeMouseMode=2
 NeoBundle 'klen/python-mode'
     let g:pymode_lint=0
     let g:pymode_folding=0
