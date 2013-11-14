@@ -1,8 +1,6 @@
-" Vundle (https://github.com/gmarik/vundle)
 set nocompatible
 filetype off
 
-let g:vundle_default_git_proto = 'git'
 set rtp+=$VIMHOME/bundle/neobundle.vim/
 call neobundle#rc(expand($VIMHOME.'/bundle/'))
 
