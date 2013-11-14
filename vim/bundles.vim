@@ -3,8 +3,8 @@ set nocompatible
 filetype off
 
 let g:vundle_default_git_proto = 'git'
-set rtp+=~/.vim/bundle/neobundle.vim/
-call neobundle#rc(expand('~/.vim/bundle/'))
+set rtp+=$VIMHOME/bundle/neobundle.vim/
+call neobundle#rc(expand($VIMHOME.'/bundle/'))
 
 " Solarized and airline both want 256 color
 set t_Co=256
