@@ -1,5 +1,13 @@
+scriptencoding utf-8
+set encoding=utf-8
 " Use Vim, not Vi settings
 set nocompatible
+
+if has('win32') || has ('win64')
+    let $VIMHOME=expand("~/vimfiles")
+else
+    let $VIMHOME="~/.vim"
+endif
 
 filetype off
 
@@ -11,7 +19,7 @@ augroup myHtml
     au FileType html,htmldjango setlocal sw=2
 augroup END
 
-source ~/.vim/bundles.vim
+source $VIMHOME/bundles.vim
 syntax on
 
 "Tab settings
@@ -58,9 +66,9 @@ nmap \q :nohlsearch<CR>
 set backup
 set undofile
 set undolevels=300
-set undodir=~/.vim/undo
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+set undodir=$VIMHOME/undo
+set backupdir=$VIMHOME/backup
+set directory=$VIMHOME/tmp
 
 set noerrorbells
 
