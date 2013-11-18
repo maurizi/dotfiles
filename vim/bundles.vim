@@ -28,15 +28,15 @@ NeoBundle 'bling/vim-airline'
     let g:airline_left_sep = '▶'
     let g:airline_right_sep = '◀'
     let g:airline_branch_prefix = '⎇  '
-NeoBundle 'wincent/Command-T', {
-\ 'disabled': !has('ruby'),
-\ 'build' : {
-\   'cygwin': 'cd ~/.vim/bundle/Command-T/ruby/command-t && ruby extconf.rb && make',
-\   'unix': 'cd ~/.vim/bundle/Command-T/ruby/command-t && ruby extconf.rb && make',
-\ }
-\}
-    nnoremap <silent> <Leader>t :CommandT<CR>
-    nnoremap <silent> <Leader>f :CommandTBuffer<CR>
+NeoBundle 'kien/ctrlp.vim'
+    let g:ctrlp_map = '<leader>t'
+    " current buffers (default of <leader>b conflicts with py-mode)
+    silent! nnoremap <unique> <silent> <Leader>f :CtrlPBuffer<CR>
+    " tags
+    silent! nnoremap <unique> <silent> <Leader>T :CtrlPTag<CR>
+    " most recently used files
+    silent! nnoremap <unique> <silent> <leader>m :CtrlPMRU<CR>
+    let g:ctrlp_working_path_mode = ''  " Always search from current directory
 NeoBundle 'takac/vim-commandcaps'
 NeoBundle 'sjl/gundo.vim'
     nnoremap <F5> :GundoToggle<CR>
