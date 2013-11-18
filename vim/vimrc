@@ -6,7 +6,7 @@ set nocompatible
 if has('win32') || has ('win64')
     let $VIMHOME=expand("~/vimfiles")
 else
-    let $VIMHOME="~/.vim"
+    let $VIMHOME=expand("~/.vim")
 endif
 
 filetype off
