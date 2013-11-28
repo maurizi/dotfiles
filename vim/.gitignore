@@ -1,5 +1,6 @@
 bundle/
 backup/
+ctags/
 tmp/
 view/
 undo/

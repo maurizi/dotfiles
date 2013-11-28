@@ -15,7 +15,7 @@ NeoBundle 'Shougo/vimproc', {
 \     'cygwin' : 'make -f make_cygwin.mak',
 \     'mac' : 'make -f make_mac.mak',
 \     'unix' : 'make -f make_unix.mak',
-\    },
+\    }
 \ }
 
 "Github
@@ -36,6 +36,13 @@ NeoBundle 'kien/ctrlp.vim'
     silent! nnoremap <unique> <silent> <leader>m :CtrlPMRU<CR>
     let g:ctrlp_working_path_mode = ''  " Always search from current directory
 NeoBundle 'takac/vim-commandcaps'
+NeoBundle 'maurizi/vim-easytags', {
+\ 'external_commands': 'ctags',
+\ 'depends': 'xolox/vim-misc'
+\ }
+    let g:easytags_by_filetype = $VIMHOME . '/ctags/'
+    let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
+    let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*'
 NeoBundle 'sjl/gundo.vim'
     nnoremap <F5> :GundoToggle<CR>
 NeoBundle 'terryma/vim-multiple-cursors'
