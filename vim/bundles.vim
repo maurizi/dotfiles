@@ -58,6 +58,9 @@ NeoBundle 'scrooloose/nerdtree'
     map <C-f> :NERDTreeFind<CR>
     " Single-click to open directories, double-click to open files
     let g:NERDTreeMouseMode=2
+    " Use the same split opening bindings as ctrlp
+    let g:NERDTreeMapOpenSplit='<C-s>'
+    let g:NERDTreeMapOpenVSplit='<C-v>'
 NeoBundle 'klen/python-mode'
     let g:pymode_lint=0
     let g:pymode_folding=0
