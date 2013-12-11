@@ -50,8 +50,10 @@ set listchars=tab:>·,trail:␣
 "Highlight matching )
 set showmatch
 
-" Use relative line numbers
-set relativenumber
+" relative line numbers
+if exists('+relativenumber')
+    set relativenumber
+endif
 
 " Ignore case on search
 set ignorecase
@@ -64,11 +66,13 @@ nmap \q :nohlsearch<CR>
 
 " Backups/temp/undo files in single directory
 set backup
-set undofile
-set undolevels=300
-set undodir=$VIMHOME/undo
 set backupdir=$VIMHOME/backup
 set directory=$VIMHOME/tmp
+if has('persistent_undo')
+    set undofile
+    set undodir=$VIMHOME/undo
+    set undolevels=300
+endif
 
 set noerrorbells
 
