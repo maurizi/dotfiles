@@ -19,7 +19,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 
 "Github
-NeoBundle 'mileszs/ack.vim', {'external_commands': 'ack'}
+NeoBundle 'rking/ag.vim', {'external_commands': 'ag'}
 NeoBundle 'bling/vim-airline'
     set laststatus=2
     set ttimeoutlen=50
