@@ -20,6 +20,7 @@ NeoBundle 'Shougo/vimproc', {
 
 "Github
 NeoBundle 'rking/ag.vim', {'external_commands': 'ag'}
+    let g:agprg="ag --column -U"
 NeoBundle 'bling/vim-airline'
     set laststatus=2
     set ttimeoutlen=50
