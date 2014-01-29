@@ -62,6 +62,7 @@ NeoBundle 'scrooloose/nerdtree'
     " Use the same split opening bindings as ctrlp
     let g:NERDTreeMapOpenSplit='<C-s>'
     let g:NERDTreeMapOpenVSplit='<C-v>'
+NeoBundle 'jvirtanen/vim-octave'
 NeoBundle 'klen/python-mode'
     let g:pymode_lint=0
     let g:pymode_folding=0

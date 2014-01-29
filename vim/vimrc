@@ -137,6 +137,7 @@ hi Search term=reverse ctermbg=11 ctermfg=000 guibg=Yellow guifg=Black
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType octave set omnifunc=syntaxcomplete#Complete
 
 " Solarized needs to happen in vimrc for some reason...
 set background=dark
