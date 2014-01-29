@@ -99,10 +99,12 @@ augroup END
 nmap j gj
 nmap k gk
 
-" Map tab and shift-tab to next/prev in location fix, useful for LAck and
-" syntastic
+" Map tab and shift-tab to next/prev in location fix, useful for syntastic
 nnoremap <tab> :lnext<CR>
 nnoremap <S-tab> :lprev<CR>
+" Similar for quickfix list, for Ag
+nnoremap <return> :cnext<CR>
+nnoremap <S-return> :cprev<CR>
 
 set wrap
 set textwidth=79
