@@ -83,6 +83,7 @@ NeoBundle 'scrooloose/syntastic'
     let g:syntastic_warning_symbol='⚠'
     let g:syntastic_auto_loc_list=1
     let g:syntastic_loc_list_height=4
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-fugitive'
     " Open Ggrep and Glog in a quickfix automatically
     nnoremap <leader>l :silent Glog \| redraw!<CR>
