@@ -68,6 +68,7 @@ nmap \q :nohlsearch<CR>
 set backup
 set backupdir=$VIMHOME/backup
 set directory=$VIMHOME/tmp
+set viewdir=$VIMHOME/view
 if has('persistent_undo')
     set undofile
     set undodir=$VIMHOME/undo
