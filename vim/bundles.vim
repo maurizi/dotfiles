@@ -55,7 +55,7 @@ NeoBundle 'scrooloose/nerdtree'
         \   if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")
         \|      q
         \|  endif
-    map <C-d> :NERDTreeToggle<CR>
+    map <C-e> :NERDTreeToggle<CR>
     map <C-f> :NERDTreeFind<CR>
     " Single-click to open directories, double-click to open files
     let g:NERDTreeMouseMode=2
