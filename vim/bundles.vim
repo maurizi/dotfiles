@@ -72,6 +72,7 @@ NeoBundle 'altercation/vim-colors-solarized'
     let g:solarized_termcolors=256
 NeoBundle 'maurizi/sparkup', {'rtp': 'vim/'}
     let g:sparkupMapsNormal=1
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'junegunn/vim-easy-align'
     vnoremap <silent> <Enter> :EasyAlign<Enter>
