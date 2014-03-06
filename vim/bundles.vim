@@ -70,7 +70,7 @@ NeoBundle 'klen/python-mode'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'altercation/vim-colors-solarized'
     let g:solarized_termcolors=256
-NeoBundle 'maurizi/sparkup', {'rtp': 'vim/'}
+NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
     let g:sparkupMapsNormal=1
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'cakebaker/scss-syntax.vim'
