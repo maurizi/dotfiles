@@ -62,6 +62,8 @@ NeoBundle 'scrooloose/nerdtree'
     " Use the same split opening bindings as ctrlp
     let g:NERDTreeMapOpenSplit='<C-s>'
     let g:NERDTreeMapOpenVSplit='<C-v>'
+NeoBundle 'myusuf3/numbers.vim'
+    let g:numbers_exclude = ['tagbar', 'gundo', 'nerdtree', 'ctrlp']
 NeoBundle 'jvirtanen/vim-octave'
 NeoBundle 'klen/python-mode'
     let g:pymode_lint=0
