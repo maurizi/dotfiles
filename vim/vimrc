@@ -84,7 +84,7 @@ set foldlevel=0
 
 " Save code folding state
 set viewoptions-=options
-augroup vimrc
+augroup views
     autocmd BufWinLeave *
     \   if expand('%') != '' && &buftype !~ 'nofile'
     \|      mkview
@@ -132,6 +132,14 @@ aug QFClose
   au!
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
+
+" Autoload vimrc changes
+augroup vimrc
+    au!
+    au BufWritePost $MYVIMRC so $MYVIMRC
+    au BufWritePost vimrc so $MYVIMRC
+    au BufWritePost bundles.vim so $MYVIMRC
+augroup END
 
 " default highlighting sucks (white on yellow)
 hi Search term=reverse ctermbg=11 ctermfg=000 guibg=Yellow guifg=Black
