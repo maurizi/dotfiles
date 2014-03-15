@@ -100,12 +100,16 @@ augroup END
 nmap j gj
 nmap k gk
 
-" Map tab and shift-tab to next/prev in location fix, useful for syntastic
-nnoremap <tab> :lnext<CR>
-nnoremap <S-tab> :lprev<CR>
-" Similar for quickfix list, for Ag
-nnoremap <return> :cnext<CR>
-nnoremap <S-return> :cprev<CR>
+" Map tab and shift-tab to next/prev in location fix, useful for syntastic and Ag
+function! NextInLocationOrQuickFix(dir)
+  if IsBufferOpen("Location List")
+    silent exec('l'.a:dir)
+  elseif IsBufferOpen("Quickfix List")
+    silent exec('c'.a:dir)
+  endif
+endfunction
+nnoremap <silent> <tab> :call NextInLocationOrQuickFix('next')<CR>
+nnoremap <silent> <S-tab> :call NextInLocationOrQuickFix('prev')<CR>
 
 set wrap
 set textwidth=79
@@ -142,14 +146,21 @@ function! GetBufferList()
   return buflist
 endfunction
 
-function! ToggleList(bufname, pfx)
+function! IsBufferOpen(bufname)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
     if bufwinnr(bufnum) != -1
-      exec(a:pfx.'close')
-      return
+      return 1
     endif
   endfor
+  return 0
+endfunction
+
+function! ToggleList(bufname, pfx)
+  if IsBufferOpen(a:bufname)
+    exec(a:pfx.'close')
+    return
+  endif
   if a:pfx == 'l' && len(getloclist(0)) == 0
       echohl ErrorMsg
       echo "Location List is Empty."
