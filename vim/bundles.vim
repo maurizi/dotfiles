@@ -49,10 +49,12 @@ NeoBundle 'maurizi/vim-easytags', {
     let g:easytags_by_filetype = $VIMHOME . '/ctags/'
     let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
     let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*'
+NeoBundle 'int3/vim-extradite'
 NeoBundle 'tpope/vim-fugitive'
     " Open Ggrep and Glog in a quickfix automatically
     nnoremap <leader>l :silent Glog \| redraw!<CR>
     autocmd QuickFixCmdPost *grep* cwindow
+NeoBundle 'jaxbot/github-issues.vim'
 NeoBundle 'sjl/gundo.vim'
     nnoremap <F5> :GundoToggle<CR>
 NeoBundle 'terryma/vim-multiple-cursors'

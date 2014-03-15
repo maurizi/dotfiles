@@ -20,6 +20,7 @@ augroup myHtml
 augroup END
 
 source $VIMHOME/bundles.vim
+silent! source $VIMHOME/secret.vim
 syntax on
 
 "Tab settings
