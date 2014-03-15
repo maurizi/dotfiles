@@ -87,6 +87,7 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
     let g:sparkupMapsNormal=1
 NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'ervandew/supertab'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
     let g:syntastic_python_checkers=['flake8']
