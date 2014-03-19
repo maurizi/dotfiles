@@ -61,7 +61,10 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'scrooloose/nerdtree'
     " Auto-open nerdtree when vim is opened without files,
     " and autoclose when it is the only thing left
-    autocmd vimenter * if !argc() | NERDTree | endif
+    " Don't auto-open if we're in an embedded GVim (like eclim)
+    if !exists("g:vimplugin_running")
+        autocmd vimenter * if !argc() | NERDTree | endif
+    endif
     autocmd bufenter *
         \   if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")
         \|      q

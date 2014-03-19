@@ -6,3 +6,5 @@ view/
 undo/
 .netrwhist
 secret.vim
+eclim/
+plugin/eclim.vim
