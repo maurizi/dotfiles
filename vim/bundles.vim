@@ -69,8 +69,9 @@ NeoBundle 'klen/python-mode'
     let g:pymode_lint=0
     let g:pymode_folding=0
     let g:pymode_rope_complete_on_dot=0 " Autocomplete is too slow and jarring to happen on a '.'
-    map <leader>j :RopeGotoDefinition<CR>
-    map <leader>r :RopeRename<CR>
+    let g:pymode_rope_rename_bind='<leader>r'
+    let g:pymode_rope_goto_definition_bind = '<leader>j'
+    let g:pymode_rope_regenerate_on_write = 0 " Infuriatingly slow.  Need to fix (subprocess?)
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'altercation/vim-colors-solarized'
     let g:solarized_termcolors=256
