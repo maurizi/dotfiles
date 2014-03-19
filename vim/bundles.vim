@@ -89,6 +89,8 @@ NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
     let g:sparkupMapsNormal=1
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'ervandew/supertab'
+    let g:SuperTabDefaultCompletionType = "context"
+    let g:SuperTabContextDefaultCompletionType = "<C-x><C-o>"
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
     let g:syntastic_python_checkers=['flake8']
