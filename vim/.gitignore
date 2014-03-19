@@ -5,3 +5,4 @@ tmp/
 view/
 undo/
 .netrwhist
+secret.vim

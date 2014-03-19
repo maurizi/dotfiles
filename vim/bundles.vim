@@ -27,6 +27,9 @@ NeoBundle 'bling/vim-airline'
     let g:airline_left_sep = '▶'
     let g:airline_right_sep = '◀'
     let g:airline_branch_prefix = '⎇  '
+NeoBundle 'altercation/vim-colors-solarized'
+    let g:solarized_termcolors=256
+NeoBundle 'takac/vim-commandcaps'
 NeoBundle 'kien/ctrlp.vim'
     let g:ctrlp_map = '<leader>t'
     " current buffers (default of <leader>b conflicts with py-mode)
@@ -36,7 +39,9 @@ NeoBundle 'kien/ctrlp.vim'
     " most recently used files
     silent! nnoremap <unique> <silent> <leader>m :CtrlPMRU<CR>
     let g:ctrlp_working_path_mode = ''  " Always search from current directory
-NeoBundle 'takac/vim-commandcaps'
+NeoBundle 'junegunn/vim-easy-align'
+    vnoremap <silent> <Enter> :EasyAlign<Enter>
+    vnoremap <silent> <Leader><Enter> :LiveEasyAlign<Enter>
 NeoBundle 'maurizi/vim-easytags', {
 \ 'external_commands': 'ctags',
 \ 'depends': 'xolox/vim-misc'
@@ -44,6 +49,12 @@ NeoBundle 'maurizi/vim-easytags', {
     let g:easytags_by_filetype = $VIMHOME . '/ctags/'
     let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
     let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*'
+NeoBundle 'int3/vim-extradite'
+NeoBundle 'tpope/vim-fugitive'
+    " Open Ggrep and Glog in a quickfix automatically
+    nnoremap <leader>l :silent Glog \| redraw!<CR>
+    autocmd QuickFixCmdPost *grep* cwindow
+NeoBundle 'jaxbot/github-issues.vim'
 NeoBundle 'sjl/gundo.vim'
     nnoremap <F5> :GundoToggle<CR>
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -73,15 +84,11 @@ NeoBundle 'klen/python-mode'
     let g:pymode_rope_goto_definition_bind = '<leader>j'
     let g:pymode_rope_regenerate_on_write = 0 " Infuriatingly slow.  Need to fix (subprocess?)
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'altercation/vim-colors-solarized'
-    let g:solarized_termcolors=256
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
     let g:sparkupMapsNormal=1
-NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'junegunn/vim-easy-align'
-    vnoremap <silent> <Enter> :EasyAlign<Enter>
-    vnoremap <silent> <Leader><Enter> :LiveEasyAlign<Enter>
+NeoBundle 'ervandew/supertab'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
     let g:syntastic_python_checkers=['flake8']
@@ -91,10 +98,6 @@ NeoBundle 'scrooloose/syntastic'
     let g:syntastic_auto_loc_list=1
     let g:syntastic_loc_list_height=4
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'tpope/vim-fugitive'
-    " Open Ggrep and Glog in a quickfix automatically
-    nnoremap <leader>l :silent Glog \| redraw!<CR>
-    autocmd QuickFixCmdPost *grep* cwindow
 " vimscripts.org
 NeoBundle 'tComment'
     " always put the comment in the first column

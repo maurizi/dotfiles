@@ -20,6 +20,7 @@ augroup myHtml
 augroup END
 
 source $VIMHOME/bundles.vim
+silent! source $VIMHOME/secret.vim
 syntax on
 
 "Tab settings
@@ -100,12 +101,16 @@ augroup END
 nmap j gj
 nmap k gk
 
-" Map tab and shift-tab to next/prev in location fix, useful for syntastic
-nnoremap <tab> :lnext<CR>
-nnoremap <S-tab> :lprev<CR>
-" Similar for quickfix list, for Ag
-nnoremap <return> :cnext<CR>
-nnoremap <S-return> :cprev<CR>
+" Map tab and shift-tab to next/prev in location fix, useful for syntastic and Ag
+function! NextInLocationOrQuickFix(dir)
+  if IsBufferOpen("Location List")
+    silent exec('l'.a:dir)
+  elseif IsBufferOpen("Quickfix List")
+    silent exec('c'.a:dir)
+  endif
+endfunction
+nnoremap <silent> <tab> :call NextInLocationOrQuickFix('next')<CR>
+nnoremap <silent> <S-tab> :call NextInLocationOrQuickFix('prev')<CR>
 
 set wrap
 set textwidth=79
@@ -133,22 +138,46 @@ aug QFClose
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
 
-" Toggle quickfix (Stolen from bhuber)
-nnoremap <C-q> :call <SID>QuickfixToggle()<cr>
-
-let g:quickfix_is_open = 0
-
-function! s:QuickfixToggle()
-    if g:quickfix_is_open
-        cclose
-        let g:quickfix_is_open = 0
-        execute g:quickfix_return_to_window . "wincmd w"
-    else
-        let g:quickfix_return_to_window = winnr()
-        copen
-        let g:quickfix_is_open = 1
-    endif
+" Toggle quickfix, From:
+" vim.wikia.comwiki/Toggle_to_open_or_close_the_quickfix_window
+function! GetBufferList()
+  redir =>buflist
+  silent! ls
+  redir END
+  return buflist
 endfunction
+
+function! IsBufferOpen(bufname)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      return 1
+    endif
+  endfor
+  return 0
+endfunction
+
+function! ToggleList(bufname, pfx)
+  if IsBufferOpen(a:bufname)
+    exec(a:pfx.'close')
+    return
+  endif
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+" I don't know why, but I need this for <C-q> to be aqble to be mapped
+silent !stty -ixon > /dev/null 2>/dev/null
+nnoremap <silent> <C-l> :call ToggleList("Location List", 'l')<CR>
+nnoremap <silent> <C-q> :call ToggleList("Quickfix List", 'c')<CR>
 
 " Autoload vimrc changes
 augroup vimrc
