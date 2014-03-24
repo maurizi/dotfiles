@@ -23,6 +23,13 @@ source $VIMHOME/bundles.vim
 silent! source $VIMHOME/secret.vim
 syntax on
 
+
+" Better window movement
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Down> <C-w>j
+nnoremap <C-Up> <C-w>k
+nnoremap <C-Right> <C-w>l
+
 "Tab settings
 set shiftwidth=4
 set softtabstop=4
