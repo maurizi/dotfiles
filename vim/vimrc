@@ -62,6 +62,9 @@ set showmatch
 if exists('+relativenumber')
     set relativenumber
 endif
+if version >= 704
+    set number
+endif
 
 " Ignore case on search
 set ignorecase
