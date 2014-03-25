@@ -47,6 +47,11 @@ set preserveindent
 " Set F2 to toggle indent fixing for pasting
 map <F2> :set invpaste<cr>
 
+nnoremap <S-Insert> "+p
+inoremap <S-Insert> :exec <C-r>+
+nnoremap <S-y> "+y
+vnoremap <S-y> "+y
+
 set backspace=indent,eol,start
 
 set scrolloff=3
