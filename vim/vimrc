@@ -107,7 +107,7 @@ augroup views
     \|  endif
     autocmd BufWinEnter *
     \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      silent loadview
+    \|      silent! loadview
     \|  endif
 augroup END
 
