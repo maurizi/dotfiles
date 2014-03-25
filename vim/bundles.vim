@@ -49,6 +49,8 @@ NeoBundle 'maurizi/vim-easytags', {
     let g:easytags_by_filetype = $VIMHOME . '/ctags/'
     let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
     let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'int3/vim-extradite'
 NeoBundle 'tpope/vim-fugitive'
     " Open Ggrep and Glog in a quickfix automatically
@@ -57,6 +59,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'jaxbot/github-issues.vim'
 NeoBundle 'sjl/gundo.vim'
     nnoremap <F5> :GundoToggle<CR>
+NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'scrooloose/nerdtree'
     " Auto-open nerdtree when vim is opened without files,
@@ -95,6 +98,7 @@ NeoBundle 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<C-x><C-o>"
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'mutewinter/swap-parameters'
 NeoBundle 'scrooloose/syntastic'
     let g:syntastic_python_checkers=['flake8']
     let g:syntastic_javascript_checkers=['jshint']
