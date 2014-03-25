@@ -45,7 +45,7 @@ set copyindent
 set preserveindent
 
 " Set F2 to toggle indent fixing for pasting
-set pastetoggle=<F2>
+map <F2> :set invpaste<cr>
 
 set backspace=indent,eol,start
 
