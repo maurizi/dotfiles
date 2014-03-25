@@ -106,6 +106,7 @@ NeoBundle 'scrooloose/syntastic'
     let g:syntastic_warning_symbol='⚠'
     let g:syntastic_auto_loc_list=1
     let g:syntastic_loc_list_height=4
+    let g:syntastic_always_populate_loc_list=1 " Eclim forces me to do this. TODO: make Eclim behave
 NeoBundle 'majutsushi/tagbar'
 " vimscripts.org
 NeoBundle 'tComment'
