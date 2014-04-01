@@ -94,9 +94,13 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
     let g:sparkupMapsNormal=1
 NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'ervandew/supertab'
-    let g:SuperTabDefaultCompletionType = "context"
-    let g:SuperTabContextDefaultCompletionType = "<C-x><C-o>"
+NeoBundle 'Valloric/YouCompleteMe', {
+\ 'build' : {
+\     'mac' : 'install.sh --clang-completer --omnisharp-completer',
+\     'unix' : 'install.sh --clang-completer --omnisharp-completer'
+\    }
+\ }
+
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mutewinter/swap-parameters'
 NeoBundle 'scrooloose/syntastic'
