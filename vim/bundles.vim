@@ -96,11 +96,13 @@ NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'Valloric/YouCompleteMe', {
 \ 'build' : {
-\     'mac' : 'install.sh --clang-completer --omnisharp-completer',
-\     'unix' : 'install.sh --clang-completer --omnisharp-completer'
+\     'mac' : './install.sh --clang-completer --omnisharp-completer',
+\     'unix' : './install.sh --clang-completer --omnisharp-completer'
 \    }
 \ }
-
+    let g:EclimCompletionMethod = 'omnifunc'
+    let g:ycm_autoclose_preview_window_after_completion = 1
+    let g:ycm_key_list_previous_completion = ['<C-TAB>']
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mutewinter/swap-parameters'
 NeoBundle 'scrooloose/syntastic'
