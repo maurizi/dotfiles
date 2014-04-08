@@ -44,7 +44,8 @@ NeoBundle 'junegunn/vim-easy-align'
     vnoremap <silent> <Leader><Enter> :LiveEasyAlign<Enter>
 NeoBundle 'maurizi/vim-easytags', {
 \ 'external_commands': 'ctags',
-\ 'depends': 'xolox/vim-misc'
+\ 'depends': 'xolox/vim-misc',
+\ 'focus': 1
 \ }
     let g:easytags_by_filetype = $VIMHOME . '/ctags/'
     let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
@@ -57,7 +58,7 @@ NeoBundle 'tpope/vim-fugitive'
     nnoremap <leader>l :silent Glog \| redraw!<CR>
     autocmd QuickFixCmdPost *grep* cwindow
 NeoBundle 'jaxbot/github-issues.vim'
-NeoBundle 'sjl/gundo.vim'
+NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     nnoremap <F5> :GundoToggle<CR>
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -82,16 +83,19 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'myusuf3/numbers.vim'
     let g:numbers_exclude = ['tagbar', 'gundo', 'nerdtree', 'ctrlp']
 NeoBundle 'jvirtanen/vim-octave'
-NeoBundle 'klen/python-mode'
+NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': 'python'}}
     let g:pymode_lint=0
     let g:pymode_folding=0
     let g:pymode_rope_complete_on_dot=0 " Autocomplete is too slow and jarring to happen on a '.'
     let g:pymode_rope_rename_bind='<leader>r'
     let g:pymode_rope_goto_definition_bind = '<leader>j'
-    let g:pymode_rope_regenerate_on_write = 0 " Infuriatingly slow.  Need to fix (subprocess?)
+    let g:pymode_rope_regenerate_on_write = 1
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+NeoBundleLazy 'rstacruz/sparkup', {
+\ 'rp': 'vim/',
+\ 'autoload': {'filetypes': ['html', 'xml', 'htmldjango']}
+\ }
     let g:sparkupMapsNormal=1
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'Valloric/YouCompleteMe', {
