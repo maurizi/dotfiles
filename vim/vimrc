@@ -119,9 +119,9 @@ nmap k gk
 " Map tab and shift-tab to next/prev in location fix, useful for syntastic and Ag
 function! NextInLocationOrQuickFix(dir)
   if IsBufferOpen("Location List")
-    silent exec('l'.a:dir)
+    silent! exec('l'.a:dir)
   elseif IsBufferOpen("Quickfix List")
-    silent exec('c'.a:dir)
+    silent! exec('c'.a:dir)
   endif
 endfunction
 nnoremap <silent> <tab> :call NextInLocationOrQuickFix('next')<CR>
