@@ -118,6 +118,17 @@ NeoBundle 'scrooloose/syntastic'
     let g:syntastic_loc_list_height=4
     let g:syntastic_always_populate_loc_list=1 " Eclim forces me to do this. TODO: make Eclim behave
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'marijnh/tern_for_vim', {
+\ 'external_commands': ['npm', 'node'],
+\ 'autoload': {'filetypes': ['html', 'htmldjango', 'javascript']},
+\ 'build' : {
+\     'windows' : 'npm install',
+\     'cygwin' : 'npm install',
+\     'mac' : 'npm install',
+\     'unix' : 'npm install'
+\    }
+\ }
+
 " vimscripts.org
 NeoBundle 'tComment'
     " always put the comment in the first column
