@@ -6,3 +6,8 @@ export PATH=~/bin:$PATH
 if [ -f "$HOME/.bashrc" ]; then
    source "$HOME/.bashrc"
 fi
+
+# include .profile if it exists
+if [ -f "$HOME/.profile" ]; then
+   source "$HOME/.profile"
+fi
