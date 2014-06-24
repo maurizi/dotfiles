@@ -61,6 +61,7 @@ NeoBundle 'jaxbot/github-issues.vim'
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     nnoremap <F5> :GundoToggle<CR>
 NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'scrooloose/nerdtree'
     " Auto-open nerdtree when vim is opened without files,
