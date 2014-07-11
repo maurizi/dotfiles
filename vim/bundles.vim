@@ -49,7 +49,7 @@ NeoBundle 'maurizi/vim-easytags', {
 \ }
     let g:easytags_by_filetype = $VIMHOME . '/ctags/'
     let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
-    let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*'
+    let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*,*dist/*'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'int3/vim-extradite'
@@ -94,9 +94,10 @@ NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': 'python'}}
     let g:pymode_rope_goto_definition_bind = '<leader>j'
     let g:pymode_rope_regenerate_on_write = 1
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'wting/rust.vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundleLazy 'rstacruz/sparkup', {
-\ 'rp': 'vim/',
+\ 'rtp': 'vim/',
 \ 'autoload': {'filetypes': ['html', 'xml', 'htmldjango']}
 \ }
     let g:sparkupMapsNormal=1
