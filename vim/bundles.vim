@@ -104,8 +104,8 @@ NeoBundleLazy 'rstacruz/sparkup', {
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'Valloric/YouCompleteMe', {
 \ 'build' : {
-\     'mac' : './install.sh --clang-completer --omnisharp-completer',
-\     'unix' : './install.sh --clang-completer --omnisharp-completer'
+\     'mac' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer',
+\     'unix' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer'
 \    }
 \ }
     let g:EclimCompletionMethod = 'omnifunc'
