@@ -3,7 +3,9 @@
 DOTFILES=$(git rev-parse --show-toplevel);
 cd $DOTFILES/scripts
 
-source lib.sh
+sudo apt-get install stow
+
+stow -v -t ~/ $DOTFILES/unix/
 
 installers=("vim" "utils" "git-utils")
 if [ -n "$1" ]

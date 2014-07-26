@@ -1,12 +1,4 @@
 #!/bin/bash
-source lib.sh
-
-echo "Installing git-submodule-move"
-cloneAndLink iam-TJ/git-submodule-move git-submodule-move
-
-echo "Installing git-hooks"
-cloneAndLink icefox/git-hooks git-hooks
-install "git/git_hooks" ".git_hooks"
 
 echo "Installing hub"
 sudo apt-get install -qqy rubygems
@@ -14,22 +6,11 @@ sudo gem install -qy hub >/dev/null
 rm -rf $DOTFILES/bin/hub
 hub hub standalone > $DOTFILES/bin/hub && chmod +x $DOTFILES/bin/hub
 
-# Autoload _git completion functions
-if declare -f _git > /dev/null; then
-    _git
-fi
-if declare -f _git_commands > /dev/null; then
-_hub_commands=(
-        'alias:show shell instructions for wrapping git'
-        'pull-request:open a pull request on GitHub'
-        'fork:fork origin repo on GitHub'
-        'create:create new repo on GitHub for the current project'
-        'browse:browse the project on GitHub'
-        'compare:open GitHub compare view'
-    )
-    # Extend the '_git_commands' function with hub commands
-    eval "$(declare -f _git_commands | sed -e 's/base_commands=(/base_commands=(${_hub_commands} /')"
-fi
+echo "Installing git-submodule-move"
+hub clone --quiet iam-TJ/git-submodule-move $DOTFILES/unix/bin/git-submodule-move
+
+echo "Installing git-hooks"
+hub clone icefox/git-hooks $DOTFILES/unix/bin/git-hooks
 
 echo "Setting git aliases"
 git config --global alias.root '!pwd'
