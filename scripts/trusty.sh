@@ -1,10 +1,21 @@
 #!/bin/bash
 
+DOTFILES=$(git rev-parse --show-toplevel);
+cd $DOTFILES/scripts
+
+sudo apt-get install stow
+
+stow -v -t ~/ $DOTFILES/unix/
+
+sudo apt-add-repository ppa:mizuno-as/silversearcher-ag
+sudo apt-get update
+sudo apt-get install -qqy silversearcher-ag
+
 echo "Installing hub"
-sudo apt-get install -qqy rubygems
+sudo apt-get install -qqy ruby
 sudo gem install -qy hub >/dev/null
 rm -rf $DOTFILES/bin/hub
-hub hub standalone > $DOTFILES/bin/hub && chmod +x $DOTFILES/bin/hub
+hub hub standalone > $DOTFILES/unix/bin/hub && chmod +x $DOTFILES/unix/bin/hub
 
 echo "Installing git-submodule-move"
 hub clone --quiet iam-TJ/git-submodule-move $DOTFILES/unix/bin/git-submodule-move
