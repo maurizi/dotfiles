@@ -102,13 +102,13 @@ set foldlevel=0
 set viewoptions-=options
 augroup views
     autocmd BufWinLeave *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      mkview
-    \|  endif
+    \ if expand('%') != '' && &buftype !~ 'nofile'
+    \| mkview
+    \| endif
     autocmd BufWinEnter *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      silent! loadview
-    \|  endif
+    \ if expand('%') != '' && &buftype !~ 'nofile'
+    \| silent! loadview
+    \| endif
 augroup END
 
 " Move up/down by screen row not text line, useful for files with one REALLLY
