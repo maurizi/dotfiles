@@ -102,7 +102,12 @@ NeoBundleLazy 'rstacruz/sparkup', {
 \ }
     let g:sparkupMapsNormal=1
 NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'Shougo/neocomplete', {
+\ 'disabled': !has('win32unix')
+\ }
+    let g:neocomplete#enable_at_startup = 1
 NeoBundle 'Valloric/YouCompleteMe', {
+\ 'disabled': has('win32unix'),
 \ 'build' : {
 \     'mac' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer',
 \     'unix' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer'
