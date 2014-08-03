@@ -2,9 +2,10 @@
 
 sudo apt-get install stow
 
-stow -v -t ~ unix
-
 sudo apt-get install -qqy silversearcher-ag
+
+# For tern
+sudo apt-get install nodejs-legacy
 
 echo "Installing hub"
 sudo apt-get install -qqy ruby
