@@ -1,11 +1,10 @@
 #!/bin/bash
 
 DOTFILES=$(git rev-parse --show-toplevel);
-cd $DOTFILES/scripts
 
 sudo apt-get install stow
 
-stow -v -t ~/ $DOTFILES/unix/
+stow -v -t ~ unix
 
 sudo apt-add-repository ppa:mizuno-as/silversearcher-ag
 sudo apt-get update
@@ -32,3 +31,10 @@ git config --global alias.ll 'log --pretty=format:"%C(yellow)%h%Cred%d\ %Creset%
 
 git config --global core.editor vim
 git config --global push.default simple
+
+if [ ! -e ~/.vim/bundle/neobundle.vim ]
+then
+    echo "Cloning NeoBundle"
+    git clone --quiet git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+fi
+vim +NeoBundleInstall! +qall`
