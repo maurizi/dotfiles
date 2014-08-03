@@ -1,9 +1,4 @@
-bundle/
-backup/
 ctags/
-tmp/
-view/
-undo/
 .netrwhist
 secret.vim
 eclim/
