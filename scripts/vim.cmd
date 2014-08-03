@@ -5,10 +5,10 @@ chdir /D %~dp0
 
 FOR /F "delims=" %%i IN ('git rev-parse --show-toplevel') DO set DOTFILES=%%i
 
-set BASE_DIR=%DOTFILES%/vim
+set BASE_DIR=%DOTFILES%/unix
 
-call mklink "%HOME%/_vimrc" "%BASE_DIR%/vimrc"
-call mklink /J "%HOME%/vimfiles" "%BASE_DIR%"
+call mklink "%HOME%/_vimrc" "%BASE_DIR%/.vimrc"
+call mklink /J "%HOME%/vimfiles" "%BASE_DIR%/.vim"
 
 IF NOT EXIST "%BASE_DIR%/vim/bundle" (
         call mkdir "%BASE_DIR%/vim/bundle"
