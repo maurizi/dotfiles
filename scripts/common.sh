@@ -3,9 +3,17 @@
 DOTFILES=$(git rev-parse --show-toplevel);
 
 # Delete any existing files before stowing
+#   In order to support stowing, delete top-level files
+#   only if they're not directories
 for file in $(ls -A unix); do
-    rm -rf ~/$file
+    rm ~/$file
 done
+# Explicitly delete ~/.vimrc if it is a directory,
+# because it never has anything worth keeping
+if [ -d ~/.vimrc ];
+then
+    rm -rf ~/.vimrc
+fi
 
 
 stow -v -t ~ unix
