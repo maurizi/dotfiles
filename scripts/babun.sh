@@ -13,4 +13,12 @@ gem install -qy hub >/dev/null
 # For NeoComplete
 pact install lua
 
+# For fabric
+pact install python python-paramiko python-crypto gcc-g++ wget openssh python-setuptool
+python /usr/lib/python2.7/site-packages/easy_install.py pip
+pip install ecdsa fabric
+
+# For ansible
+pip install pyyaml jinja2
+
 source $(dirname $0)/common.sh
