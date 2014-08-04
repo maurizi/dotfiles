@@ -44,7 +44,8 @@ NeoBundle 'maurizi/vim-easytags', {
 \ 'depends': 'xolox/vim-misc',
 \ 'focus': 1
 \ }
-    let g:easytags_by_filetype = $VIMHOME . '/ctags/'
+    let g:easytags_async = 1
+    let g:easytags_dynamic_files = 2
     let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
     let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*,*dist/*'
 NeoBundle 'tpope/vim-dispatch'
