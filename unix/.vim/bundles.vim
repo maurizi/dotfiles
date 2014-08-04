@@ -4,9 +4,6 @@ filetype off
 set rtp+=$VIMHOME/bundle/neobundle.vim/
 call neobundle#rc(expand($VIMHOME.'/bundle/'))
 
-" Solarized and airline both want 256 color
-set t_Co=256
-
 " NeoBundle manages itself
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
@@ -24,11 +21,10 @@ NeoBundle 'rking/ag.vim', {'external_commands': 'ag'}
 NeoBundle 'bling/vim-airline'
     set laststatus=2
     set ttimeoutlen=50
-    let g:airline_left_sep = '▶'
-    let g:airline_right_sep = '◀'
-    let g:airline_branch_prefix = '⎇  '
+    let g:airline_left_sep = '►'
+    let g:airline_right_sep = '◄'
+    let g:airline_branch_prefix = 'λ'
 NeoBundle 'altercation/vim-colors-solarized'
-    let g:solarized_termcolors=256
 NeoBundle 'takac/vim-commandcaps'
 NeoBundle 'kien/ctrlp.vim'
     let g:ctrlp_map = '<leader>t'
