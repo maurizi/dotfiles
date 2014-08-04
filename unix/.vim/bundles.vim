@@ -98,6 +98,7 @@ NeoBundleLazy 'rstacruz/sparkup', {
 \ }
     let g:sparkupMapsNormal=1
 NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'Shougo/neocomplete', {
 \ 'disabled': !has('win32unix')
 \ }

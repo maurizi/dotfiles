@@ -4,6 +4,8 @@ DOTFILES=$(git rev-parse --show-toplevel);
 
 pact install stow
 
+pact install tmux
+
 echo "Installing hub"
 pact install ruby
 gem install -qy hub >/dev/null
