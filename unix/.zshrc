@@ -60,6 +60,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PYTHONHOME=/usr
 export PYTHONPATH=/usr/lib/python2.7
+
+eval `dircolors ~/.dircolors`
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
