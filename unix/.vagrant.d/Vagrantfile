@@ -1,0 +1,7 @@
+Vagrant.configure("2") do |config|
+  # Share my home folder into the Vagrant VM
+  config.vm.synced_folder "~/.dotfiles", "/home/vagrant/dotfiles"
+
+  # Run the dotfiles configuration script
+  config.vm.provision "shell", inline: "~/.dotfiles/scripts/ubuntu.sh"
+end
