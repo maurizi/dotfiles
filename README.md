@@ -1,4 +1,4 @@
-To use on Trusty Tahr Ubuntu run [./scripts/trusty.sh](scripts/trusty.sh)
+To use on Ubuntu run [./scripts/ubuntu.sh](scripts/ubuntu.sh)
 
 To install vim configurations on windows run [scripts/vim.cmd](scripts/vim.cmd) using `Run As Administrator`
 
