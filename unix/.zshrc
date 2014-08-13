@@ -45,6 +45,9 @@ ZSH_THEME="nanotech"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Fix colors in tmux
+export TERM="screen-256color"
+
 ZSH_TMUX_AUTOSTART=true
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
