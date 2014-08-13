@@ -2,6 +2,8 @@
 
 DOTFILES=$(git rev-parse --show-toplevel);
 
+cd $DOTFILES
+
 # Delete any existing files before stowing
 #   In order to support stowing, delete top-level files
 #   only if they're not directories
@@ -32,4 +34,4 @@ then
     echo "Cloning NeoBundle"
     git clone --quiet git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
-vim +NeoBundleInstall! +qall
+~/.vim/bundle/neobundle.vim/bin/neoinstall
