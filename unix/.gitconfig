@@ -3,6 +3,7 @@
 [core]
 	editor = vim
 	filemode = false
+	excludesfile = ~/.gitignore_global
 [color]
 	ui = true
 [credential]
