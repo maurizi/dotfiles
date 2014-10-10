@@ -1,8 +1,10 @@
 set nocompatible
 filetype off
 
-set rtp+=$VIMHOME/bundle/neobundle.vim/
-call neobundle#rc(expand($VIMHOME.'/bundle/'))
+if has('vim_starting')
+    set rtp+=$VIMHOME/bundle/neobundle.vim/
+endif
+call neobundle#begin(expand($VIMHOME.'/bundle/'))
 
 " NeoBundle manages itself
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -132,6 +134,8 @@ NeoBundle 'tComment'
     " always put the comment in the first column
     let g:tcommentOptions = {'col':1}
 NeoBundleLazy 'AnsiEsc.vim', {'autoload': {'commands': 'AnsiEsc'}}
+
+call neobundle#end()
 
 filetype plugin indent on
 NeoBundleCheck
