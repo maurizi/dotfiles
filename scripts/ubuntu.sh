@@ -1,8 +1,10 @@
 #!/bin/bash
 
 sudo apt-get install -qqy stow
-
 sudo apt-get install -qqy tmux
+sudo apt-get install -qqy git
+sudo apt-get install -qqy python-setuptools python-dev build-essential
+sudo easy_install pip
 
 if [ `lsb_release -cs` == "precise" ];
 then
@@ -10,9 +12,6 @@ then
     sudo apt-get update
 fi
 sudo apt-get install -qqy silversearcher-ag
-
-# For tern
-sudo apt-get install -qqy nodejs nodejs-legacy
 
 if [ ! -e ~/.oh-my-zsh ];
 then

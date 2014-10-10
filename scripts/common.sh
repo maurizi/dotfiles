@@ -25,10 +25,10 @@ hub hub standalone > $DOTFILES/unix/bin/hub && chmod +x $DOTFILES/unix/bin/hub
 pip install virtualenvwrapper
 
 echo "Installing git-submodule-move"
-hub clone --quiet iam-TJ/git-submodule-move $DOTFILES/unix/bin/git-submodule-move
+git clone --quiet git://github.com/iam-TJ/git-submodule-move.git $DOTFILES/unix/bin/git-submodule-move
 
 echo "Installing git-hooks"
-hub clone icefox/git-hooks $DOTFILES/unix/bin/git-hooks
+git clone --quiet git://github.com/icefox/git-hooks.git $DOTFILES/unix/bin/git-hooks
 
 if [ ! -e ~/.vim/bundle/neobundle.vim ]
 then
