@@ -1,0 +1,6 @@
+-- Show timing information for each query
+\timing on
+-- Distinguish NULLs from empty strings
+\pset null ‘[NULL]’
+-- Automatically change output for large results
+\x auto
