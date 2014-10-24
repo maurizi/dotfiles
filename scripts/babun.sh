@@ -14,7 +14,7 @@ gem install -qy hub >/dev/null
 pact install lua
 
 # For fabric
-pact install python python-paramiko python-crypto gcc-g++ wget openssh python-setuptool
+pact install python python-paramiko python-crypto gcc-g++ wget openssh python-setuptools
 python /usr/lib/python2.7/site-packages/easy_install.py pip
 pip install ecdsa fabric
 
