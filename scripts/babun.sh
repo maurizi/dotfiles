@@ -19,6 +19,6 @@ python /usr/lib/python2.7/site-packages/easy_install.py pip
 pip install ecdsa fabric
 
 # For ansible
-pip install pyyaml jinja2
+pip install pyyaml jinja2 ansible
 
 source $(dirname $0)/common.sh
