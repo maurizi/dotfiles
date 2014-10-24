@@ -1,7 +1,0 @@
-#!/bin/bash
-files=$(git diff --name-only HEAD@{1}..HEAD@{0})
-
-if [ -n "$files" ]
-then
-    rm-vimview $files
-fi
