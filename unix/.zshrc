@@ -63,6 +63,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 eval `dircolors ~/.dircolors`
 
+if [[ $(uname -o) == "Cygwin" ]]; then
+    export PYTHONHOME=/usr
+    export PYTHONPATH=/usr/lib/python2.7
+fi
+
 # For virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
