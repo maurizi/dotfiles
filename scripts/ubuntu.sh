@@ -1,11 +1,13 @@
 #!/bin/bash
 
-sudo apt-get install -qqy stow
-sudo apt-get install -qqy tmux
-sudo apt-get install -qqy git
-sudo apt-get install -qqy python-setuptools python-dev build-essential
+# Essentials, can't run the install scripts without em
+sudo apt-get install -qqy git stow python-setuptools python-dev build-essential
 sudo easy_install pip
 
+# Niceties - Integrates well with my oh-my-zsh plugins
+sudo apt-get install -qqy tmux autojump
+
+# ag isn't in the repos in precise, but it is in later versions
 if [ `lsb_release -cs` == "precise" ];
 then
     sudo add-apt-repository -y ppa:lvillani/silversearcher
@@ -17,7 +19,7 @@ if [ ! -e ~/.oh-my-zsh ];
 then
     sudo apt-get install -qqy curl zsh
     echo "Installing oh-my-zsh"
-    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    curl --silent -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
 
 sudo apt-get install -qqy ruby
