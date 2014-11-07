@@ -23,6 +23,9 @@ source $VIMHOME/bundles.vim
 silent! source $VIMHOME/secret.vim
 syntax on
 
+" source project-level .vimrc files
+set exrc
+set secure
 
 " Better window movement
 nnoremap <C-Left> <C-w>h

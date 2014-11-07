@@ -62,7 +62,6 @@ NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
     let g:go_fmt_command = "gofmt"
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     nnoremap <F5> :GundoToggle<CR>
-NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'scrooloose/nerdtree'
