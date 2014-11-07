@@ -5,11 +5,12 @@ DOTFILES=$(git rev-parse --show-toplevel);
 cd $DOTFILES
 
 # Delete any existing files before stowing
-#   In order to support stowing, delete top-level files
-#   only if they're not directories
+#   In order to support stowing into existing directories like KDE configs,
+#   delete top-level files only if they're not directories
 for file in $(ls -A unix); do
     rm ~/$file
 done
+
 # Explicitly delete ~/.vimrc if it is a directory,
 # because it never has anything worth keeping
 if [ -d ~/.vimrc ];
@@ -22,7 +23,11 @@ stow -v -t ~ unix
 rm -rf $DOTFILES/bin/hub
 hub hub standalone > $DOTFILES/unix/bin/hub && chmod +x $DOTFILES/unix/bin/hub
 
-pip install virtualenvwrapper
+if which sudo; then
+    sudo pip install virtualenvwrapper
+else
+    pip install virtualenvwrapper
+fi
 
 echo "Installing git-submodule-move"
 git clone --quiet git://github.com/iam-TJ/git-submodule-move.git $DOTFILES/unix/bin/git-submodule-move
