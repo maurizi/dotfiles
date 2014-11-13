@@ -1,0 +1,20 @@
+#!/bin/bash
+
+files=$(git diff --name-only HEAD@{1}..HEAD@{0})
+
+pathToView ()
+{
+    local path=$(readlink -f "$1")
+    if [[ $path =~ ^$HOME ]]; then
+        path=${path#$HOME}
+        echo -n '~'
+    fi
+    echo "$(echo "$path" | sed 's/\//=+/g')="
+}
+
+for file in $files; do
+    view_file=$(pathToView $file)
+    if [[ -f "$view_file" ]]; then
+        rm "$view_file"
+    fi
+done

@@ -27,9 +27,6 @@ pip install virtualenvwrapper
 echo "Installing git-submodule-move"
 git clone --quiet git://github.com/iam-TJ/git-submodule-move.git $DOTFILES/unix/bin/git-submodule-move
 
-echo "Installing git-hooks"
-git clone --quiet git://github.com/icefox/git-hooks.git $DOTFILES/unix/bin/git-hooks
-
 if [ ! -e ~/.vim/bundle/neobundle.vim ]
 then
     echo "Cloning NeoBundle"
