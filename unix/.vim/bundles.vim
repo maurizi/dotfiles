@@ -38,12 +38,13 @@ NeoBundle 'kien/ctrlp.vim'
     " most recently used files
     silent! nnoremap <unique> <silent> <leader>m :CtrlPMRU<CR>
     let g:ctrlp_working_path_mode = ''  " Always search from current directory
+    let g:ctrlp_show_hidden = 1
 NeoBundle 'junegunn/vim-easy-align'
     vnoremap <silent> <Enter> :EasyAlign<Enter>
     vnoremap <silent> <Leader><Enter> :LiveEasyAlign<Enter>
 NeoBundle 'maurizi/vim-easytags', {
 \ 'external_commands': 'ctags',
-\ 'depends': 'xolox/vim-misc',
+\ 'depends': ['xolox/vim-misc', 'xolox/vim-shell'],
 \ 'focus': 1
 \ }
     let g:easytags_async = 1
