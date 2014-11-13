@@ -38,18 +38,10 @@ NeoBundle 'kien/ctrlp.vim'
     " most recently used files
     silent! nnoremap <unique> <silent> <leader>m :CtrlPMRU<CR>
     let g:ctrlp_working_path_mode = ''  " Always search from current directory
+    let g:ctrlp_show_hidden = 1
 NeoBundle 'junegunn/vim-easy-align'
     vnoremap <silent> <Enter> :EasyAlign<Enter>
     vnoremap <silent> <Leader><Enter> :LiveEasyAlign<Enter>
-NeoBundle 'maurizi/vim-easytags', {
-\ 'external_commands': 'ctags',
-\ 'depends': 'xolox/vim-misc',
-\ 'focus': 1
-\ }
-    let g:easytags_async = 1
-    let g:easytags_dynamic_files = 2
-    let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
-    let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*,*dist/*'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'int3/vim-extradite'
@@ -57,11 +49,12 @@ NeoBundle 'tpope/vim-fugitive'
     " Open Ggrep and Glog in a quickfix automatically
     nnoremap <leader>l :silent Glog \| redraw!<CR>
     autocmd QuickFixCmdPost *grep* cwindow
-NeoBundle 'jaxbot/github-issues.vim'
 NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
     let g:go_fmt_command = "gofmt"
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     nnoremap <F5> :GundoToggle<CR>
+NeoBundle 'willthefrog/vim-gutentags', 'zsh-fix'
+    let g:gutentags_tagfile = '.git/tags'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'scrooloose/nerdtree'
@@ -116,6 +109,7 @@ NeoBundle 'Valloric/YouCompleteMe', {
     let g:EclimCompletionMethod = 'omnifunc'
     let g:ycm_autoclose_preview_window_after_completion = 1
     let g:ycm_key_list_previous_completion = ['<C-TAB>']
+    let g:ycm_collect_identifiers_from_tags_files = 1
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mutewinter/swap-parameters'
 NeoBundle 'scrooloose/syntastic'
@@ -127,12 +121,6 @@ NeoBundle 'scrooloose/syntastic'
     let g:syntastic_loc_list_height=4
     let g:syntastic_always_populate_loc_list=1 " Eclim forces me to do this. TODO: make Eclim behave
 NeoBundle 'majutsushi/tagbar'
-
-" vimscripts.org
-NeoBundle 'tComment'
-    " always put the comment in the first column
-    let g:tcommentOptions = {'col':1}
-NeoBundleLazy 'AnsiEsc.vim', {'autoload': {'commands': 'AnsiEsc'}}
 NeoBundleLazy 'marijnh/tern_for_vim', {
 \ 'external_commands': ['npm', 'node'],
 \ 'autoload': {'filetypes': ['html', 'htmldjango', 'javascript']},
@@ -143,6 +131,13 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
 \     'unix' : 'npm install'
 \   }
 \ }
+
+" vimscripts.org
+NeoBundle 'tComment'
+    " always put the comment in the first column
+    let g:tcommentOptions = {'col':1}
+NeoBundleLazy 'AnsiEsc.vim', {'autoload': {'commands': 'AnsiEsc'}}
+NeoBundle 'restore_view'
 
 
 call neobundle#end()

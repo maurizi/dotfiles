@@ -23,7 +23,7 @@ source $VIMHOME/bundles.vim
 silent! source $VIMHOME/secret.vim
 syntax on
 
-" source project-level .vimrc files
+" Source local vim files
 set exrc
 set secure
 
@@ -101,19 +101,6 @@ set foldnestmax=1
 set foldlevelstart=0
 set foldlevel=0
 
-" Save code folding state
-set viewoptions-=options
-augroup views
-    autocmd BufWinLeave *
-    \ if expand('%') != '' && &buftype !~ 'nofile'
-    \| mkview
-    \| endif
-    autocmd BufWinEnter *
-    \ if expand('%') != '' && &buftype !~ 'nofile'
-    \| silent! loadview
-    \| endif
-augroup END
-
 " Move up/down by screen row not text line, useful for files with one REALLLY
 " long line
 nmap j gj
@@ -143,7 +130,7 @@ nnoremap <leader>p "_dP
 vnoremap <leader>p "_dP
 
 " Ignore the obvious things (also affects CtrlP when installed)
-set wildignore+=*.o,*.obj,*/.git/*,*.pyc,*/node_modules/*
+set wildignore+=*.o,*.obj,*.pyc,*/node_modules/*,*.min.js
 
 " Mouse usage enabled in normal mode.
 set mouse=n
