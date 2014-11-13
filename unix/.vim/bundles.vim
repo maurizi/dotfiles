@@ -137,7 +137,7 @@ NeoBundle 'tComment'
     " always put the comment in the first column
     let g:tcommentOptions = {'col':1}
 NeoBundleLazy 'AnsiEsc.vim', {'autoload': {'commands': 'AnsiEsc'}}
-NeoBundle 'restore_view'
+NeoBundle 'restore_view.vim'
 
 
 call neobundle#end()
