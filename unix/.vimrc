@@ -23,6 +23,9 @@ source $VIMHOME/bundles.vim
 silent! source $VIMHOME/secret.vim
 syntax on
 
+" Source local vim files
+set exrc
+set secure
 
 " Better window movement
 nnoremap <C-Left> <C-w>h
@@ -127,7 +130,7 @@ nnoremap <leader>p "_dP
 vnoremap <leader>p "_dP
 
 " Ignore the obvious things (also affects CtrlP when installed)
-set wildignore+=*.o,*.obj,*/.git/*,*.pyc,*/node_modules/*
+set wildignore+=*.o,*.obj,*.pyc,*/node_modules/*
 
 " Mouse usage enabled in normal mode.
 set mouse=n

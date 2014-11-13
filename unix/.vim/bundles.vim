@@ -42,15 +42,6 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'junegunn/vim-easy-align'
     vnoremap <silent> <Enter> :EasyAlign<Enter>
     vnoremap <silent> <Leader><Enter> :LiveEasyAlign<Enter>
-NeoBundle 'maurizi/vim-easytags', {
-\ 'external_commands': 'ctags',
-\ 'depends': ['xolox/vim-misc', 'xolox/vim-shell'],
-\ 'focus': 1
-\ }
-    let g:easytags_async = 1
-    let g:easytags_dynamic_files = 2
-    let g:easytags_auto_highlight = 0  " Disable highlighting because it is very slow
-    let g:easytags_custom_ignore = '*/js/lib/*,*/js/shim/*,*/static/js/*,*dist/*'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'int3/vim-extradite'
@@ -62,7 +53,8 @@ NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
     let g:go_fmt_command = "gofmt"
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     nnoremap <F5> :GundoToggle<CR>
-NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'willthefrog/vim-gutentags', 'zsh-fix'
+    let g:gutentags_tagfile = '.git/tags'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'scrooloose/nerdtree'
