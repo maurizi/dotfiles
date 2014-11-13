@@ -98,19 +98,6 @@ set foldnestmax=1
 set foldlevelstart=0
 set foldlevel=0
 
-" Save code folding state
-set viewoptions-=options
-augroup views
-    autocmd BufWinLeave *
-    \ if expand('%') != '' && &buftype !~ 'nofile'
-    \| mkview
-    \| endif
-    autocmd BufWinEnter *
-    \ if expand('%') != '' && &buftype !~ 'nofile'
-    \| silent! loadview
-    \| endif
-augroup END
-
 " Move up/down by screen row not text line, useful for files with one REALLLY
 " long line
 nmap j gj
