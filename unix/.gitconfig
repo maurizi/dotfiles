@@ -34,3 +34,5 @@
 [user]
 	email = mmaurizi@azavea.com
 	name = Michael Maurizi
+[init]
+	templatedir = ~/.git_template

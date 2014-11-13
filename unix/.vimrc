@@ -130,7 +130,7 @@ nnoremap <leader>p "_dP
 vnoremap <leader>p "_dP
 
 " Ignore the obvious things (also affects CtrlP when installed)
-set wildignore+=*.o,*.obj,*.pyc,*/node_modules/*
+set wildignore+=*.o,*.obj,*.pyc,*/node_modules/*,*.min.js
 
 " Mouse usage enabled in normal mode.
 set mouse=n
