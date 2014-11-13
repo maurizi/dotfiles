@@ -3,8 +3,4 @@ set -e
 
 dir="`git rev-parse --git-dir`"
 
-trap 'rm -f "$dir/$$.tags"' EXIT
-
-vim +"GutentagsGenerate! $dir/$$.tags"
-
-mv "$dir/$$.tags" "$dir/tags"
+vim +"GutentagsGenerate! $dir/tags" +qall
