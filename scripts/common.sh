@@ -29,9 +29,6 @@ else
     pip install virtualenvwrapper
 fi
 
-echo "Installing git-submodule-move"
-git clone --quiet git://github.com/iam-TJ/git-submodule-move.git $DOTFILES/unix/bin/git-submodule-move
-
 if [ ! -e ~/.vim/bundle/neobundle.vim ]
 then
     echo "Cloning NeoBundle"
