@@ -42,7 +42,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.linuxbrew/bin:$HOME/bin:/usr/local/bin:$PATH
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 eval `dircolors ~/.dircolors`
 

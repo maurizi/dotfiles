@@ -7,6 +7,10 @@ sudo easy_install pip
 # Niceties - Integrates well with my oh-my-zsh plugins
 sudo apt-get install -qqy tmux autojump
 
+# For the macsters that only make things available via brew
+sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
+
 # ag isn't in the repos in precise, but it is in later versions
 if [ `lsb_release -cs` == "precise" ];
 then
