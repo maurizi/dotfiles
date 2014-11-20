@@ -20,9 +20,6 @@ fi
 
 stow -v -t ~ unix
 
-rm -rf $DOTFILES/bin/hub
-hub hub standalone > $DOTFILES/unix/bin/hub && chmod +x $DOTFILES/unix/bin/hub
-
 if which sudo; then
     sudo pip install virtualenvwrapper
 else
