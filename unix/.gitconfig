@@ -31,6 +31,7 @@
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --numstat
+	set-remotes = "!sh -c 'hub remote add maurizi; hub remote add $1; hub remote set-url origin -p $1;  hub remote set-url origin -p --push maurizi; git remote -v' -"
 [user]
 	email = mmaurizi@azavea.com
 	name = Michael Maurizi
