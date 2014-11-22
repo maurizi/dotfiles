@@ -33,6 +33,11 @@ export TERM="screen-256color"
 
 ZSH_TMUX_AUTOSTART=true
 
+if [[ $(uname -o) == "Cygwin" ]]; then
+    export PYTHONHOME=/usr
+    export PYTHONPATH=/usr/lib/python2.7
+fi
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -47,11 +52,6 @@ export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 eval `dircolors ~/.dircolors`
-
-if [[ $(uname -o) == "Cygwin" ]]; then
-    export PYTHONHOME=/usr
-    export PYTHONPATH=/usr/lib/python2.7
-fi
 
 # For virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
