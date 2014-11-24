@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt-get update
 # Essentials, can't run the install scripts without em
 sudo apt-get install -qqy git stow python-setuptools python-dev build-essential
 sudo easy_install pip
