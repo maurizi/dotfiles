@@ -21,4 +21,10 @@ pip install ecdsa fabric
 # For ansible
 pip install pyyaml jinja2 ansible
 
+# Windows configs: copy because we can't symlink
+DOTFILES=$(git rev-parse --show-toplevel);
+cd $DOTFILES
+
+cp -rTv --remove-destination windows/ $USERPROFILE
+
 source $(dirname $0)/common.sh
