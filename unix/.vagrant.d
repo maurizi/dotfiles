@@ -1,1 +1,0 @@
-../windows/.vagrant.d
