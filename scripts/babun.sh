@@ -24,10 +24,6 @@ pip install pyyaml jinja2 ansible
 # Windows configs: a little manual because we can't stow
 # TODO: Migrate from stow to custom setup everywhere
 
-# Explicitly remove and then link vimfiles
-rm $USERPROFILE/vimfiles
-cmd /c mklink /J $USERPROFILE\\vimfiles $(cygpath --windows $DOTFILES/windows/vimfiles)
-
 # Use 'ag' to find appropriate files to link
 # For each file, make their base directory if necessary first
 cd $DOTFILES/windows
@@ -42,7 +38,9 @@ for FILE in $FILES; do
     # Weirdness: cygpath is adding an unreadable char to the end of my paths....
     SYMLINK=${SYMLINK:0:${#SYMLINK}-1}
     TARGET=${TARGET:0:${#TARGET}-1}
+    rm $SYMLINK
     cmd /c mklink "$SYMLINK" "$TARGET"
 done
+# TODO: Install Neobundle in windows vim dir
 
 source $DOTFILES/scripts/common.sh
