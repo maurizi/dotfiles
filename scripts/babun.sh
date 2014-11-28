@@ -22,15 +22,15 @@ pip install ecdsa fabric
 pip install pyyaml jinja2 ansible
 
 # Windows configs: a little manual because we can't stow
-# TODO: Migrate from stow to custom setup everywhere
 
 # Use 'ag' to find appropriate files to link
 # For each file, make their base directory if necessary first
 cd $DOTFILES/windows
+WINDOWS_HOME=$(cygpath --unix $USERPROFILE)
 FILES=$(ag -l --hidden '.*' . 2>/dev/null)
 for FILE in $FILES; do
     UNIX_FILE=$(cygpath --unix $FILE)
-    TARGET_PATH=$(cygpath --unix $USERPROFILE)/$UNIX_FILE
+    TARGET_PATH=$WINDOWS_HOME/$UNIX_FILE
     BASEDIR=$(dirname $TARGET_PATH)
     mkdir -p $BASEDIR
     SYMLINK=$(cygpath -w $TARGET_PATH)
@@ -41,6 +41,11 @@ for FILE in $FILES; do
     rm $SYMLINK
     cmd /c mklink "$SYMLINK" "$TARGET"
 done
-# TODO: Install Neobundle in windows vim dir
+if [ ! -e $WINDOWS_HOME/vimfiles/bundle/neobundle.vim ]
+then
+    echo "Cloning NeoBundle"
+    mkdir $WINDOWS_HOME/vimfiles/bundle
+    git clone --quiet git://github.com/Shougo/neobundle.vim.git $WINDOWS_HOME/vimfiles/bundle/neobundle.vim
+fi
 
 source $DOTFILES/scripts/common.sh
