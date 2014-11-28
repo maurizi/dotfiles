@@ -1,15 +1,1 @@
-*.pyc
-.vagrant
-.#*
-/static
-.coverage
-.sass-cache
-.idea/
-node_modules/
-
-# .mo files are compiled, binary language files created
-# by ``django-admin.py compilemessages``
-*.mo
-
-*.min.js
-treemap.js
+../windows/.agignore

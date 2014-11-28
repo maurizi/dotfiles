@@ -1,0 +1,39 @@
+[push]
+	default = current
+[core]
+	editor = vim
+	filemode = false
+	excludesfile = ~/.gitignore_global
+[color]
+	ui = true
+[credential]
+	helper = cache --timeout=3600
+[merge]
+	tool = vimdiff
+[mergetool]
+	keeptemporaries = false
+	keepbackups = false
+	prompt = false
+	trustexitcode = false
+[alias]
+	last = log -1 --stat
+	cp = cherry-pick
+	co = checkout
+	cl = clone
+	ci = commit
+	st = status -sb
+	br = branch
+	unstage = reset HEAD --
+	dc = diff --cached
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+	root = !pwd
+	prune-all = !git remote | xargs -n 1 git remote prune
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate
+	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --numstat
+	set-remotes = "!sh -c 'hub remote add maurizi; hub remote add $1; hub remote set-url origin -p $1;  hub remote set-url origin -p --push maurizi; git remote -v' -"
+[user]
+	email = mmaurizi@azavea.com
+	name = Michael Maurizi
+[init]
+	templatedir = ~/.git_template

@@ -1,2 +1,3 @@
 bin/
 unix/.vim/bundle/*
+!unix/.vimrc
