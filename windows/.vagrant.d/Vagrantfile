@@ -1,10 +1,16 @@
+$script = <<SCRIPT
+sudo apt-get install -qqy git
+cd /home/vagrant
+git clone https://github.com/maurizi/dotfiles.git
+cd dotfiles
+./scripts/ubuntu.sh
+SCRIPT
+
 Vagrant.configure("2") do |config|
   # Let me use ssh-agent with my host keys on the VM
   config.ssh.forward_agent = true
 
-  # Share my home folder into the Vagrant VM
-  config.vm.synced_folder "~/.babun/home/Mike/.dotfiles", "/home/vagrant/dotfiles"
+  # Clone the dotfiles repo and run the dotfiles configuration script
 
-  # Run the dotfiles configuration script
-  config.vm.provision "shell", inline: "cd /home/vagrant/dotfiles && ./scripts/ubuntu.sh", privileged: false
+  config.vm.provision "shell", inline: $script, privileged: false
 end
