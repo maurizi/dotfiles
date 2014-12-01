@@ -99,12 +99,13 @@ NeoBundle 'Shougo/neocomplete', {
 \ 'disabled': !has('win32unix')
 \ }
     let g:neocomplete#enable_at_startup = 1
-NeoBundle 'Valloric/YouCompleteMe', {
+NeoBundleLazy 'Valloric/YouCompleteMe', {
 \ 'disabled': has('win32unix'),
 \ 'build' : {
 \     'mac' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer',
 \     'unix' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer'
-\    }
+\    },
+\ 'autoload': {'insert': 1}
 \ }
     let g:EclimCompletionMethod = 'omnifunc'
     let g:ycm_autoclose_preview_window_after_completion = 1
