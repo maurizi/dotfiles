@@ -3,8 +3,8 @@
 DOTFILES=$(git rev-parse --show-toplevel);
 
 pact install stow
-
 pact install tmux
+pact install vim
 
 echo "Installing hub"
 pact install ruby

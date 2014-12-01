@@ -7,7 +7,7 @@ sudo apt-get install -qqy git stow python-setuptools python-dev build-essential 
 sudo easy_install pip
 
 # Niceties - Integrates well with my oh-my-zsh plugins
-sudo apt-get install -qqy tmux autojump
+sudo apt-get install -qqy tmux autojump vim-nox
 
 # For the macsters that only make things available via brew
 sudo apt-get install -qqy build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
