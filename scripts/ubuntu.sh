@@ -31,5 +31,7 @@ then
     curl --silent -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
 
+# Stuff for vim plugins (YouCompleteMe, tern_for_vim)
+sudo apt-get install cmake nodejs nodejs-legacy npm
 
 source $(dirname $0)/common.sh
