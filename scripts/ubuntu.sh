@@ -12,6 +12,9 @@ sudo apt-get install -qqy tmux autojump vim-nox
 # For the macsters that only make things available via brew
 sudo apt-get install -qqy build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
 ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
+brew doctor
+
+brew install --HEAD hub
 
 # ag isn't in the repos in precise, but it is in later versions
 if [ `lsb_release -cs` == "precise" ];
@@ -28,12 +31,5 @@ then
     curl --silent -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
 
-sudo apt-get install -qqy ruby
-echo "Installing hub"
-if [ `lsb_release -cs` == "precise" ];
-then
-    sudo apt-get install -qqy rubygems
-fi
-sudo gem install -qy hub >/dev/null
 
 source $(dirname $0)/common.sh
