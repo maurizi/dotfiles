@@ -1,6 +1,5 @@
 Vagrant.configure("2") do |config|
   # Let me use ssh-agent with my host keys on the VM
-  config.ssh.forward_agent = true
 
   # Share my home folder into the Vagrant VM
   config.vm.synced_folder "~/.dotfiles", "/home/vagrant/dotfiles"
