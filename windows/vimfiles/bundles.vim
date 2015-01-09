@@ -106,6 +106,7 @@ NeoBundleLazy 'Valloric/YouCompleteMe', {
 \     'mac' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer',
 \     'unix' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer'
 \    },
+\ 'augroup': 'youcompletemeStart',
 \ 'autoload': {'insert': 1}
 \ }
     let g:ycm_autoclose_preview_window_after_completion = 1
