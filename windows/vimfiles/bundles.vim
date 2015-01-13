@@ -27,6 +27,7 @@ NeoBundle 'bling/vim-airline'
     let g:airline_right_sep = '◄'
     let g:airline_branch_prefix = 'λ'
 NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'mapbox/carto', { 'rtp': 'build/vim-carto/' }
 NeoBundle 'altercation/vim-colors-solarized'
     set t_Co=16
 NeoBundle 'takac/vim-commandcaps'
