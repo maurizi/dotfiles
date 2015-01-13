@@ -103,8 +103,8 @@ NeoBundle 'Shougo/neocomplete', {
 NeoBundleLazy 'Valloric/YouCompleteMe', {
 \ 'disabled': has('win32unix'),
 \ 'build' : {
-\     'mac' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer',
-\     'unix' : 'git submodule update --init --recursive && ./install.sh --clang-completer --omnisharp-completer'
+\     'mac' : 'git submodule update --init --recursive; ./install.sh --clang-completer --omnisharp-completer',
+\     'unix' : 'git submodule update --init --recursive; ./install.sh --clang-completer --omnisharp-completer'
 \    },
 \ 'augroup': 'youcompletemeStart',
 \ 'autoload': {'insert': 1}
