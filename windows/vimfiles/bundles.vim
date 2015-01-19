@@ -87,6 +87,15 @@ NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': 'python'}}
     let g:pymode_rope_rename_bind='<leader>r'
     let g:pymode_rope_goto_definition_bind = '<leader>j'
     let g:pymode_rope_regenerate_on_write = 0  " Need to find a way to do this in the background
+NeoBundle 'phildawes/racer', {
+\   'build' : {
+\     'windows' : 'cargo build --release',
+\     'cygwin' : 'cargo build --release',
+\     'mac' : 'cargo build --release',
+\     'unix' : 'cargo build --release',
+\   }
+\ }
+
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'derekwyatt/vim-scala'
