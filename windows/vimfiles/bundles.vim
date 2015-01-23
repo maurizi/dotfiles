@@ -95,7 +95,6 @@ NeoBundle 'phildawes/racer', {
 \     'unix' : 'cargo build --release',
 \   }
 \ }
-
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'derekwyatt/vim-scala'
