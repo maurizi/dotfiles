@@ -55,7 +55,7 @@ NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
     let g:go_fmt_command = "gofmt"
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     nnoremap <F5> :GundoToggle<CR>
-NeoBundle 'willthefrog/vim-gutentags', 'zsh-fix'
+NeoBundle 'ludovicchabant/vim-gutentags'
     let g:gutentags_tagfile = '.git/tags'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
