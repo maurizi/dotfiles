@@ -34,7 +34,7 @@ NeoBundle 'mapbox/carto', { 'rtp': 'build/vim-carto/' }
 NeoBundle 'altercation/vim-colors-solarized'
     set t_Co=16
 NeoBundle 'takac/vim-commandcaps'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'maurizi/ctrlp.vim'
     let g:ctrlp_map = '<leader>t'
     " current buffers (default of <leader>b conflicts with py-mode)
     silent! nnoremap <unique> <silent> <Leader>f :CtrlPBuffer<CR>
