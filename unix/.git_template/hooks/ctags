@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
 
-dir="`git rev-parse --git-dir`"
+FILE=$(find -maxdepth 1 -type f | head -1)
 
-vim +"GutentagsGenerate! $dir/tags" +qall
+vim +"GutentagsUpdate!" $FILE +qall
