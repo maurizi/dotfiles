@@ -25,7 +25,10 @@ NeoBundle 'bling/vim-airline'
     set ttimeoutlen=50
     let g:airline_left_sep = '►'
     let g:airline_right_sep = '◄'
-    let g:airline_branch_prefix = 'λ'
+    if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+    endif
+    let g:airline_symbols.branch = 'λ'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'mapbox/carto', { 'rtp': 'build/vim-carto/' }
 NeoBundle 'altercation/vim-colors-solarized'
