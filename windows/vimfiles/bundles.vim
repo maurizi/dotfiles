@@ -63,17 +63,7 @@ NeoBundle 'ludovicchabant/vim-gutentags'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'scrooloose/nerdtree'
-    " Auto-open nerdtree when vim is opened without files,
-    " and autoclose when it is the only thing left
-    " Don't auto-open if we're in an embedded GVim (like eclim)
-    if !exists("g:vimplugin_running")
-        autocmd vimenter * if !argc() | NERDTree | endif
-    endif
-    autocmd bufenter *
-        \   if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")
-        \|      q
-        \|  endif
-    map <C-e> :NERDTreeToggle<CR>
+    map <C-a> :NERDTreeToggle<CR>
     map <C-f> :NERDTreeFind<CR>
     " Single-click to open directories, double-click to open files
     let g:NERDTreeMouseMode=2
