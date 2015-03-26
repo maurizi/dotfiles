@@ -28,13 +28,6 @@ brew install --HEAD hub
 
 sudo apt-get install -qqy silversearcher-ag
 
-if [ ! -e ~/.oh-my-zsh ];
-then
-    sudo apt-get install -qqy curl zsh
-    echo "Installing oh-my-zsh"
-    curl --silent -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-fi
-
 # Stuff for vim plugins (YouCompleteMe, tern_for_vim)
 sudo apt-get install cmake nodejs nodejs-legacy npm
 

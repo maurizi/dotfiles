@@ -1,11 +1,40 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+ZSH_TMUX_AUTOSTART=true
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="nanotech"
+# Fix colors in tmux
+export TERM="screen-256color"
+
+if [[ $(uname -o) == "Cygwin" ]]; then
+    export PYTHONHOME=/usr
+    export PYTHONPATH=/usr/lib/python2.7
+fi
+
+# Source zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen oh-my-zsh
+
+    # plugins go here
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/npm
+    zgen oh-my-zsh plugins/fabric
+    zgen oh-my-zsh plugins/gradle
+    zgen oh-my-zsh plugins/autojump
+    zgen oh-my-zsh plugins/git-extras
+    zgen oh-my-zsh plugins/vagrant
+    zgen oh-my-zsh plugins/tmux
+    zgen oh-my-zsh plugins/virtualenvwrapper
+
+    # Load completions
+    zgen load zsh-users/zsh-completions src
+
+    zgen oh-my-zsh themes/nanotech
+
+    # Save everything for fast load times
+    zgen save
+fi
 
 SSH_ENV=$HOME/.ssh/environment
 
@@ -27,23 +56,6 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_ssh_agent
 fi
-
-# Fix colors in tmux
-export TERM="screen-256color"
-
-ZSH_TMUX_AUTOSTART=true
-
-if [[ $(uname -o) == "Cygwin" ]]; then
-    export PYTHONHOME=/usr
-    export PYTHONPATH=/usr/lib/python2.7
-fi
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git npm fabric gradle autojump git-extras vagrant tmux virtualenvwrapper)
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 

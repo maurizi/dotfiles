@@ -26,6 +26,11 @@ else
     pip install virtualenvwrapper
 fi
 
+if [ ! -e ~/.zgen ]
+then
+    echo "Cloning zgen"
+    git clone --quiet git://github.com/tarjoilija/zgen.git ~/.zgen
+fi
 if [ ! -e ~/.vim/bundle/neobundle.vim ]
 then
     echo "Cloning NeoBundle"
