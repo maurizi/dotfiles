@@ -27,6 +27,8 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/tmux
     zgen oh-my-zsh plugins/virtualenvwrapper
 
+    zgen load maurizi/retag.rs
+
     # Load completions
     zgen load zsh-users/zsh-completions src
 
