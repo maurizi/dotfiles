@@ -2,7 +2,7 @@
 --exclude=*.o
 --exclude=*.obj
 --exclude=*.pyc
---exclude=*/node_modules/*
+--exclude=*/static/*
 --exclude=*/generated/*
 --exclude=*/build/*
 --exclude=*/target/*
