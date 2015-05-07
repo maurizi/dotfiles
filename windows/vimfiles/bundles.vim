@@ -116,14 +116,12 @@ NeoBundleLazy 'Valloric/YouCompleteMe', {
     let g:ycm_collect_identifiers_from_tags_files = 1
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mutewinter/swap-parameters'
-NeoBundle 'scrooloose/syntastic'
-    let g:syntastic_python_checkers=['flake8']
-    let g:syntastic_javascript_checkers=['jshint']
-    let g:syntastic_error_symbol='✗'
-    let g:syntastic_warning_symbol='⚠'
-    let g:syntastic_auto_loc_list=1
-    let g:syntastic_loc_list_height=4
-    let g:syntastic_always_populate_loc_list=1 " Eclim forces me to do this. TODO: make Eclim behave
+NeoBundle 'benekastah/neomake'
+    let g:neomake_python_enabled_makers=['flake8']
+    let g:neomake_javascript_enabled_makes=['jshint']
+    let g:neomake_open_list=1
+    let g:neomake_list_height=4
+    autocmd! BufWritePost * Neomake
 NeoBundle 'majutsushi/tagbar'
 NeoBundleLazy 'marijnh/tern_for_vim', {
 \ 'external_commands': ['npm', 'node'],
