@@ -80,6 +80,7 @@ NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': 'python'}}
     let g:pymode_rope_rename_bind='<leader>r'
     let g:pymode_rope_goto_definition_bind = '<leader>j'
     let g:pymode_rope_regenerate_on_write = 0  " Need to find a way to do this in the background
+    let g:pymode_rope_extract_method_bind = '<leader>e'
 NeoBundleLazy 'phildawes/racer', {
 \ 'external_commands': 'cargo',
 \ 'build' : {
