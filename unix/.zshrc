@@ -22,7 +22,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/fabric
     zgen oh-my-zsh plugins/gradle
     zgen oh-my-zsh plugins/autojump
-    zgen oh-my-zsh plugins/git-extras
     zgen oh-my-zsh plugins/vagrant
     zgen oh-my-zsh plugins/tmux
     zgen oh-my-zsh plugins/virtualenvwrapper
