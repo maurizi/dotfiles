@@ -121,7 +121,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'mutewinter/swap-parameters'
 NeoBundle 'benekastah/neomake'
     let g:neomake_python_enabled_makers=['flake8']
-    let g:neomake_javascript_enabled_makes=['jshint']
+    let g:neomake_javascript_enabled_makers=['jshint']
+    let g:neomake_go_enabled_makers=['golint']
     let g:neomake_open_list=1
     let g:neomake_list_height=4
     autocmd! BufWritePost * Neomake
