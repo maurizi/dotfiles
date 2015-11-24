@@ -25,11 +25,13 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/vagrant
     zgen oh-my-zsh plugins/tmux
     zgen oh-my-zsh plugins/virtualenvwrapper
+    zgen oh-my-zsh plugins/aws
 
     zgen load maurizi/retag.rs
 
     # Load completions
     zgen load zsh-users/zsh-completions src
+    zgen load mitchellh/packer contrib/zsh-completion
 
     zgen oh-my-zsh themes/nanotech
 
