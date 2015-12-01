@@ -10,15 +10,12 @@ sudo apt-add-repository -y ppa:yubico/stable
 
 # Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo apt-add-repository -y 'deb http://dl.google.com/linux/deb/ stable non-free main'
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 
 sudo apt-get update
 
-# TODO: Not working...
-# brew install pianobar
-
 # Development
-sudo apt-get install -qqy virtualbox
+sudo apt-get install -qqy virtualbox virtualbox-dkms virtualbox-guest-additions-iso
 sudo apt-get install -qqy openjdk-8-jdk
 sudo apt-get install -qqy google-chrome-stable
 

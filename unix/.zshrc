@@ -61,7 +61,7 @@ else
 fi
 
 # User configuration
-
+export GOPATH=$HOME
 export PATH=$HOME/.linuxbrew/bin:$HOME/bin:/usr/local/bin:$PATH
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
@@ -72,3 +72,6 @@ eval `dircolors ~/.dircolors`
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 source virtualenvwrapper.sh
+
+# added by travis gem
+[ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.sh
