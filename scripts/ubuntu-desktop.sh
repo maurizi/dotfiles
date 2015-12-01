@@ -1,9 +1,13 @@
 #!/bin/bash
 
+set -e
+
 # Insync (Google drive)
 sudo apt-add-repository -k 'https://d2t3ff60b2tol4.cloudfront.net:80/' 'deb http://apt.insynchq.com/ubuntu trusty non-free contrib'
+
 # Yubikey
 sudo apt-add-repository -y ppa:yubico/stable
+
 # Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo apt-add-repository -y 'deb http://dl.google.com/linux/deb/ stable non-free main'

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # ag isn't in the repos in precise, but it is in later versions
 if [ `lsb_release -cs` == "precise" ];
 then

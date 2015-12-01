@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 DOTFILES=$(git rev-parse --show-toplevel);
 
 pact install stow
