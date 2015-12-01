@@ -30,7 +30,15 @@ sudo apt-get install -qqy openvpn
 sudo apt-get install -qqy vuze
 
 # Keepass stuff
-# TODO: Automatically install OtpKeyProv?
 sudo apt-get install -qyy insync
 sudo apt-get install -qyy keepass2
 sudo apt-get install -qqy yubikey-personalization-gui
+
+# Keepass plugins
+sudo apt-get install mono-complete
+wget -q -O /tmp/otpkeyprov.zip http://keepass.info/extensions/v2/otpkeyprov/OtpKeyProv-2.4.zip
+unzip /tmp/otpkeyprov.zip -d /tmp/
+sudo cp /tmp/OtpKeyProv.plgx /usr/lib/keepass2/
+sudo wget -q -O /usr/lib/keepass2/KeePassHttp.plgx https://raw.github.com/pfn/keepasshttp/master/KeePassHttp.plgx
+
+wget -q -o /tmp/vagrant.deb https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb
