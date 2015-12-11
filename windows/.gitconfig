@@ -4,6 +4,7 @@
 	editor = vim
 	filemode = false
 	excludesfile = ~/.gitignore_global
+	trustctime = false
 [color]
 	ui = true
 [credential]
