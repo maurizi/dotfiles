@@ -10,7 +10,7 @@ cd $DOTFILES
 #   In order to support stowing into existing directories like KDE configs,
 #   delete top-level files only if they're not directories
 for file in $(ls -A unix); do
-    rm ~/$file
+    rm ~/$file || true
 done
 
 # Explicitly delete ~/.vimrc if it is a directory,

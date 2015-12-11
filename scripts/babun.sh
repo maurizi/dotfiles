@@ -10,13 +10,14 @@ pact install vim
 
 echo "Installing hub"
 pact install ruby
-gem install -q hub >/dev/null
 
 # For NeoComplete
 pact install lua
 
 # For fabric
 pact install python python-paramiko python-crypto gcc-g++ wget openssh python-setuptools
+export PYTHONHOME=/usr
+export PYTHONPATH=/usr/lib/python2.7
 python /usr/lib/python2.7/site-packages/easy_install.py pip
 pip install ecdsa fabric
 
@@ -40,8 +41,8 @@ for FILE in $FILES; do
     # Weirdness: cygpath is adding an unreadable char to the end of my paths....
     SYMLINK=${SYMLINK:0:${#SYMLINK}-1}
     TARGET=${TARGET:0:${#TARGET}-1}
-    rm $SYMLINK
-    cmd /c mklink "$SYMLINK" "$TARGET"
+    rm $SYMLINK || true
+    cmd /c mklink "$SYMLINK" "$TARGET" || cp "$TARGET" "$SYMLINK"
 done
 if [ ! -e $WINDOWS_HOME/vimfiles/bundle/neobundle.vim ]
 then
