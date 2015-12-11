@@ -3,9 +3,16 @@ ZSH_TMUX_AUTOSTART=true
 # Fix colors in tmux
 export TERM="screen-256color"
 
+# User configuration
+export PATH=$HOME/.linuxbrew/bin:$HOME/bin:/usr/local/bin:$PATH
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+export GOPATH=$HOME
+
 if [[ $(uname -o) == "Cygwin" ]]; then
     export PYTHONHOME=/usr
     export PYTHONPATH=/usr/lib/python2.7
+    export GOPATH=$(cygpath -w $HOME)
 fi
 
 # Source zgen
@@ -52,19 +59,12 @@ function start_ssh_agent {
 # up the agent proprely.
 if [ -f "${SSH_ENV}" ]; then
     . ${SSH_ENV} > /dev/null
-    # ps ${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+    ps -p ${SSH_AGENT_PID} > /dev/null || {
         start_ssh_agent
     }
 else
     start_ssh_agent
 fi
-
-# User configuration
-export GOPATH=$HOME
-export PATH=$HOME/.linuxbrew/bin:$HOME/bin:/usr/local/bin:$PATH
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 eval `dircolors ~/.dircolors`
 
