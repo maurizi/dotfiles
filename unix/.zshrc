@@ -15,6 +15,10 @@ if [[ $(uname -o) == "Cygwin" ]]; then
     export GOPATH=$(cygpath -w $HOME)
 fi
 
+# zgen handles updating oh-my-zsh, so disable the builtin updater
+DISABLE_AUTO_UPDATE=true
+DISABLE_UPDATE_PROMPT=true
+
 # Source zgen
 source "${HOME}/.zgen/zgen.zsh"
 
