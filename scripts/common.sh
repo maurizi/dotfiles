@@ -24,8 +24,10 @@ stow -v -t ~ unix
 
 if which sudo; then
     sudo pip install virtualenvwrapper
+    sudo pip install thefuck
 else
     pip install virtualenvwrapper
+    pip install thefuck
 fi
 
 if [ ! -e ~/.zgen ]

@@ -67,6 +67,7 @@ else
 fi
 
 eval `dircolors ~/.dircolors`
+eval "$(thefuck --alias)"
 
 # For virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
