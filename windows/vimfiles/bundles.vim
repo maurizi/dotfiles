@@ -20,7 +20,7 @@ NeoBundle 'Shougo/vimproc', {
 "Github
 NeoBundle 'rking/ag.vim', {'external_commands': 'ag'}
     let g:agprg="ag --column -U"
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
     set laststatus=2
     set ttimeoutlen=50
     let g:airline_left_sep = '►'
@@ -29,6 +29,7 @@ NeoBundle 'bling/vim-airline'
       let g:airline_symbols = {}
     endif
     let g:airline_symbols.branch = 'λ'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'mapbox/carto', { 'rtp': 'build/vim-carto/' }
 NeoBundle 'altercation/vim-colors-solarized'
