@@ -31,6 +31,7 @@ NeoBundle 'vim-airline/vim-airline'
     let g:airline_symbols.branch = 'λ'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'tpope/vim-bundler'
 NeoBundle 'mapbox/carto', { 'rtp': 'build/vim-carto/' }
 NeoBundle 'altercation/vim-colors-solarized'
     set t_Co=16
@@ -92,6 +93,7 @@ NeoBundleLazy 'phildawes/racer', {
 \ },
 \ 'autoload': {'filetypes': ['rust']}
 \ }
+NeoBundle 'tpope/vim-rails'
 NeoBundleLazy 'tpope/vim-repeat', {'autoload': {'mappings': '.'}}
 NeoBundle 'wting/rust.vim'
 NeoBundle 'derekwyatt/vim-scala'
