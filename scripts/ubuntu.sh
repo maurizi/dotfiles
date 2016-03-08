@@ -2,11 +2,6 @@
 
 set -e
 
-# ag isn't in the repos in precise, but it is in later versions
-if [ `lsb_release -cs` == "precise" ];
-then
-    sudo add-apt-repository -y ppa:lvillani/silversearcher
-fi
 # Neovim
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 
