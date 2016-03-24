@@ -199,6 +199,12 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType octave set omnifunc=syntaxcomplete#Complete
 
+" 2-space indents for Ruby, HTML, and YML
+autocmd FileType html setlocal sw=2 sts=2 ts=2 et
+autocmd FileType ruby setlocal sw=2 sts=2 ts=2 et
+autocmd FileType yaml setlocal sw=2 sts=2 ts=2 et
+
+
 " Solarized needs to happen in vimrc for some reason...
 set background=dark
 colorscheme solarized
