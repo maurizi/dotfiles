@@ -6,6 +6,8 @@
 --exclude=*/generated/*
 --exclude=*/build/*
 --exclude=*/target/*
+--exclude=*/coverage/*
+--exclude=*/migrate/*
 
 --fields=+l
 
