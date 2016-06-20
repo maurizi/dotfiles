@@ -18,8 +18,9 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 
 "Github
+NeoBundle 'Chun-Yang/vim-action-ag', {'external_commands': 'ag'}
 NeoBundle 'rking/ag.vim', {'external_commands': 'ag'}
-    let g:agprg="ag --column -U"
+    let g:ag_prg="ag -U --vimgrep"
 NeoBundle 'vim-airline/vim-airline'
     set laststatus=2
     set ttimeoutlen=50
@@ -60,6 +61,7 @@ NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
     let g:go_fmt_command = "gofmt"
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     nnoremap <F5> :GundoToggle<CR>
+NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'scrooloose/nerdtree'
