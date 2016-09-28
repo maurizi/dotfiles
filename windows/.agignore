@@ -3,6 +3,7 @@
 .vagrant
 .#*
 /static
+static/
 .coverage
 .sass-cache
 .idea/
@@ -22,5 +23,6 @@ public/assets/
 *.mo
 
 *.min.js
+*.min.css
 treemap.js
 main.css
