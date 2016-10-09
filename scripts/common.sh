@@ -10,7 +10,7 @@ cd $DOTFILES
 #   In order to support stowing into existing directories like KDE configs,
 #   delete top-level files only if they're not directories
 for file in $(ls -A unix); do
-    rm ~/$file || true
+    rm ~/$file || true > /dev/null
 done
 
 # Explicitly delete ~/.vimrc if it is a directory,
@@ -19,6 +19,15 @@ if [ -d ~/.vimrc ];
 then
     rm -rf ~/.vimrc
 fi
+
+# Ensure nested directories exist before we stow
+cd unix
+dirs=$(find . -type d -links 2);
+cd ~
+for dir in "$dirs"; do
+   mkdir -p $dir || true
+done
+cd $DOTFILES
 
 stow -v -t ~ unix
 
