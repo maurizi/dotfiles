@@ -39,6 +39,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/aws
 
     zgen load maurizi/retag.rs
+    zgen load steventlamb/kj completions/kj.plugin.zsh
 
     # Load completions
     zgen load zsh-users/zsh-completions src

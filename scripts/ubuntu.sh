@@ -37,6 +37,8 @@ export GOPATH=$HOME
 sudo apt-get install -qqy golang
 
 go get github.com/github/hub
-go get github.com/steventlamb/scripty
+
+curl -L# ~/bin/kj https://github.com/steventlamb/kj/releases/download/0.2.0/kj-x86_64-linux > ~/bin/kj
+chmod +x ~/bin/kj
 
 source $(dirname $0)/common.sh
