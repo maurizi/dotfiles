@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Scripts for ubuntu command-line usage
+
 set -e
 
 # Neovim

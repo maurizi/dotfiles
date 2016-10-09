@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Scripts for cygwin programs
+
 set -e
 
 DOTFILES=$(git rev-parse --show-toplevel);

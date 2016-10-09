@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Scripts for GUI programs
+
 set -e
 
 # Insync (Google drive)

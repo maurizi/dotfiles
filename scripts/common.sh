@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# scripts common to all unixes
+
 set -e
 
 DOTFILES=$(git rev-parse --show-toplevel);
