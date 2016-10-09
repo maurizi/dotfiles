@@ -60,6 +60,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
     let g:go_fmt_command = "gofmt"
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
+    let g:gundo_prefer_python3 = 1
     nnoremap <F5> :GundoToggle<CR>
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'gabrielelana/vim-markdown'
@@ -123,7 +124,9 @@ NeoBundleLazy 'Valloric/YouCompleteMe', {
     let g:ycm_key_list_previous_completion = ['<C-TAB>']
     let g:ycm_collect_identifiers_from_tags_files = 1
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'mutewinter/swap-parameters'
+NeoBundle 'mutewinter/swap-parameters', {
+\ 'disabled': !has('python2')
+\ }
 NeoBundle 'benekastah/neomake'
     let g:neomake_python_enabled_makers=['flake8']
     let g:neomake_javascript_enabled_makers=['jshint']
