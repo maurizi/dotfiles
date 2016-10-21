@@ -5,7 +5,8 @@
 set -e
 
 # Insync (Google drive)
-sudo apt-add-repository -k 'https://d2t3ff60b2tol4.cloudfront.net:80/' 'deb http://apt.insynchq.com/ubuntu trusty non-free contrib'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
+sudo sh -c 'echo "deb http://apt.insynchq.com/ubuntu $(lsb_release -sc) non-free" > /etc/apt/sources.list.d/insync.list'
 
 # Yubikey
 sudo apt-add-repository -y ppa:yubico/stable
@@ -26,10 +27,11 @@ sudo apt-get install -qqy gnome-tweak-tool unity-tweak-tool
 sudo apt-get install -qqy vlc
 sudo apt-get install -qqy pidgin pidgin-otr
 sudo apt-get install -qqy redshift-gtk
+sudo apt-get install -qqy git-gui
 
 # Download stuff
 sudo apt-get install -qqy openvpn
-sudo apt-get install -qqy vuze
+sudo apt-get install -qqy qbittorrent
 
 # Keepass stuff
 sudo apt-get install -qyy insync
@@ -37,7 +39,7 @@ sudo apt-get install -qyy keepass2
 sudo apt-get install -qqy yubikey-personalization-gui
 
 # Keepass plugins
-sudo apt-get install mono-complete
+sudo apt-get install -qyy mono-complete
 wget -q -O /tmp/otpkeyprov.zip http://keepass.info/extensions/v2/otpkeyprov/OtpKeyProv-2.4.zip
 unzip /tmp/otpkeyprov.zip -d /tmp/
 sudo cp /tmp/OtpKeyProv.plgx /usr/lib/keepass2/
