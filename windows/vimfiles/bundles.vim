@@ -114,14 +114,13 @@ NeoBundle 'Shougo/neocomplete', {
 NeoBundleLazy 'Valloric/YouCompleteMe', {
 \ 'disabled': has('win32unix'),
 \ 'build' : {
-\     'mac' : 'git submodule update --init --recursive; ./install.sh --clang-completer --omnisharp-completer',
-\     'unix' : 'git submodule update --init --recursive; ./install.sh --clang-completer --omnisharp-completer'
+\     'unix' : 'git submodule update --init --recursive; ./install.py --clang-completer --racer-completer --gocode-completer'
 \    },
 \ 'augroup': 'youcompletemeStart',
 \ 'autoload': {'insert': 1}
 \ }
     let g:ycm_autoclose_preview_window_after_completion = 1
-    let g:ycm_key_list_previous_completion = ['<C-TAB>']
+    let g:ycm_key_list_previous_completion = ['<S-TAB>', '<C-TAB>', '<UP>']
     let g:ycm_collect_identifiers_from_tags_files = 1
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mutewinter/swap-parameters', {
