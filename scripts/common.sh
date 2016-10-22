@@ -34,11 +34,9 @@ cd $DOTFILES
 stow -v -t ~ unix
 
 if which sudo; then
-    sudo pip install virtualenvwrapper
-    sudo pip install thefuck
+    sudo pip install --upgrade virtualenvwrapper
 else
-    pip install virtualenvwrapper
-    pip install thefuck
+    pip install --upgrade virtualenvwrapper
 fi
 
 if [ ! -e ~/.zgen ]
