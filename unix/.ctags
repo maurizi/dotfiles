@@ -1,4 +1,5 @@
 --exclude=*min.js
+--exclude=*bundle.js
 --exclude=*.o
 --exclude=*.obj
 --exclude=*.pyc
@@ -8,6 +9,15 @@
 --exclude=*/target/*
 --exclude=*/coverage/*
 --exclude=*/migrate/*
+--exclude=*/dist/*
+--exclude=*/.tmp/*
+--exclude=*/min/*
+--exclude=*/examples/*
+--exclude=*/example/*
+--exclude=*/node_modules/*/node_modules/*
+--exclude=*/node_modules/*.h
+--exclude=*/node_modules/*.hpp
+--exclude=*/node_modules/*.cpp
 
 --fields=+l
 
