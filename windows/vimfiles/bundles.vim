@@ -114,7 +114,7 @@ NeoBundle 'Shougo/neocomplete', {
 NeoBundleLazy 'Valloric/YouCompleteMe', {
 \ 'disabled': has('win32unix'),
 \ 'build' : {
-\     'unix' : 'git submodule update --init --recursive; ./install.py --clang-completer --racer-completer --gocode-completer'
+\     'unix' : 'git submodule update --init --recursive; ./install.py --clang-completer --racer-completer --gocode-completer --tern-completer'
 \    },
 \ 'augroup': 'youcompletemeStart',
 \ 'autoload': {'insert': 1}
