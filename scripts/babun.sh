@@ -53,4 +53,12 @@ then
     git clone --quiet git://github.com/Shougo/neobundle.vim.git $WINDOWS_HOME/vimfiles/bundle/neobundle.vim
 fi
 
+if [ ! -e ~/src/thefuck-cygwin ]
+then
+    cd ~/src
+    git clone https://github.com/SnoringFrog/thefuck-cygwin
+    cd thefuck-cygwin
+    ./install.sh
+fi
+
 source $DOTFILES/scripts/common.sh

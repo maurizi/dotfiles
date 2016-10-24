@@ -19,6 +19,7 @@ sudo apt-get install -qqy tmux autojump vim-nox zsh
 
 sudo apt-get install -qqy neovim
 sudo pip install --upgrade neovim
+sudo pip install --upgrade thefuck
 
 # For the macsters that only make things available via brew
 if ! brew -h >/dev/null; then
