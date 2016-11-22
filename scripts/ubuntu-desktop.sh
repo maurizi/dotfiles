@@ -34,8 +34,8 @@ sudo apt-get install -qqy openvpn
 sudo apt-get install -qqy qbittorrent
 
 # Keepass stuff
-sudo apt-get install -qyy insync
-sudo apt-get install -qyy keepass2
+sudo apt-get install -qqy insync
+sudo apt-get install -qqy keepass2
 sudo apt-get install -qqy yubikey-personalization-gui
 
 # Keepass plugins
@@ -46,3 +46,9 @@ sudo cp /tmp/OtpKeyProv.plgx /usr/lib/keepass2/
 sudo wget -q -O /usr/lib/keepass2/KeePassHttp.plgx https://raw.github.com/pfn/keepasshttp/master/KeePassHttp.plgx
 
 wget -q -o /tmp/vagrant.deb https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb
+
+# Android Studio requirements (emulator acceleration)
+sudo apt-get install -qqy qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+
+# Android Studio requirements (SDK requirements)
+sudo apt-get install -qqy lib32stdc++6 lib32z1
