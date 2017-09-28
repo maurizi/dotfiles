@@ -42,6 +42,7 @@ if ! zgen saved; then
     zgen load steventlamb/kj completions/kj.plugin.zsh
 
     # Load completions
+    zgen load petervanderdoes/git-flow-completion
     zgen load zsh-users/zsh-completions src
     zgen load mitchellh/packer contrib/zsh-completion
 
