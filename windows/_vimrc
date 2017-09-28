@@ -133,7 +133,9 @@ set wildignore+=*.o,*.obj,*.pyc,*/node_modules/*,*min.js,*/generated/*,*/build/*
 " Mouse usage enabled in normal mode.
 set mouse=n
 " " Set xterm2 mouse mode to allow resizing of splits
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 " Auto-close quickfix window when it's the only thing left
 aug QFClose
