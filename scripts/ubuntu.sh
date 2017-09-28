@@ -6,6 +6,8 @@ set -e
 
 # Neovim
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
+# Node.js
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 sudo apt-get update
 
@@ -21,27 +23,26 @@ sudo apt-get install -qqy neovim
 sudo pip install --upgrade neovim
 sudo pip install --upgrade thefuck
 
-# For the macsters that only make things available via brew
-if ! brew -h >/dev/null; then
-    sudo apt-get install -qqy build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
-    ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
-fi
-
 sudo apt-get install -qqy silversearcher-ag
 
 # Stuff for vim plugins (YouCompleteMe, tern_for_vim)
-sudo apt-get install -qqy cmake nodejs nodejs-legacy npm
+sudo apt-get install -qqy cmake nodejs
 
 # Need Rust for retag.rs
 curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- -y
 
-# Needs Go for scripty and hub
-export GOPATH=$HOME
+# go get Go
 sudo apt-get install -qqy golang
 
-go get github.com/github/hub
+# hub
+pushd /tmp
+curl -L# https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz > hub.tgz
+tar zvxvf hub.tgz
+sudo ./hub-linux-amd64-2.2.9/install
+popd
 
-curl -L# ~/bin/kj https://github.com/steventlamb/kj/releases/download/0.2.0/kj-x86_64-linux > ~/bin/kj
+# kj/scripty
+curl -L# https://github.com/steventlamb/kj/releases/download/0.2.0/kj-x86_64-linux > ~/bin/kj
 chmod +x ~/bin/kj
 
 source $(dirname $0)/common.sh
