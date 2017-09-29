@@ -12,16 +12,16 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get update
 
 # Essentials, can't run the install scripts without em
-sudo apt-get install -qqy git stow python-setuptools python-dev build-essential python-software-properties
-sudo easy_install pip
+sudo apt-get install -qqy git stow python-setuptools python-dev build-essential python-software-properties python3-dev python-pip python3-pip
 
 
 # Personal tools
 sudo apt-get install -qqy tmux autojump vim-nox zsh
 
 sudo apt-get install -qqy neovim
-sudo pip install --upgrade neovim
-sudo pip install --upgrade thefuck
+sudo pip2 install --upgrade neovim
+sudo pip3 install --upgrade neovim
+sudo pip3 install --upgrade thefuck
 
 sudo apt-get install -qqy silversearcher-ag
 
