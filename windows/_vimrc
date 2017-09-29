@@ -206,6 +206,9 @@ autocmd FileType html setlocal sw=2 sts=2 ts=2 et
 autocmd FileType ruby setlocal sw=2 sts=2 ts=2 et
 autocmd FileType yaml setlocal sw=2 sts=2 ts=2 et
 
+" Syntax highlighting for HTML templates in TypeScript
+autocmd FileType typescript syn clear foldBraces
+autocmd FileType typescript JsPreTmpl html
 
 " Solarized needs to happen in vimrc for some reason...
 set background=dark

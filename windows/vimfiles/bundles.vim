@@ -62,6 +62,7 @@ NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     let g:gundo_prefer_python3 = 1
     nnoremap <F5> :GundoToggle<CR>
+NeoBundleLazy 'Quramy/vim-js-pretty-template', {'autoload': {'filetypes': ['typescript']}}
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -130,7 +131,7 @@ NeoBundle 'benekastah/neomake'
     let g:neomake_python_enabled_makers=['flake8']
     let g:neomake_javascript_enabled_makers=['jshint']
     let g:neomake_go_enabled_makers=['golint']
-    let g:neomake_open_list=1
+    let g:neomake_open_list=2
     let g:neomake_list_height=4
     autocmd! BufWritePost * Neomake
 NeoBundle 'majutsushi/tagbar'
@@ -144,6 +145,7 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
 \     'unix' : 'npm install'
 \   }
 \ }
+NeoBundle 'leafgarland/typescript-vim'
 
 " vimscripts.org
 NeoBundle 'tComment'
