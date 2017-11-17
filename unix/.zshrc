@@ -80,5 +80,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 source virtualenvwrapper.sh
 
+# Stop using vim, use Neovim
+alias vim='echo "Did you mean nvim?"'
+
 # added by travis gem
 [ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.sh
