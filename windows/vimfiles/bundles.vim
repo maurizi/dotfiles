@@ -31,6 +31,8 @@ NeoBundle 'vim-airline/vim-airline'
     endif
     let g:airline_symbols.branch = 'λ'
 NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'bdauria/angular-cli.vim'
+    autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'mapbox/carto', { 'rtp': 'build/vim-carto/' }
@@ -112,13 +114,11 @@ NeoBundle 'Shougo/neocomplete', {
 \ 'disabled': !has('win32unix')
 \ }
     let g:neocomplete#enable_at_startup = 1
-NeoBundleLazy 'Valloric/YouCompleteMe', {
+NeoBundle 'Valloric/YouCompleteMe', {
 \ 'disabled': has('win32unix'),
 \ 'build' : {
 \     'unix' : 'git submodule update --init --recursive; ./install.py --clang-completer --racer-completer --gocode-completer --tern-completer'
 \    },
-\ 'augroup': 'youcompletemeStart',
-\ 'autoload': {'insert': 1}
 \ }
     let g:ycm_autoclose_preview_window_after_completion = 1
     let g:ycm_key_list_previous_completion = ['<S-TAB>', '<C-TAB>', '<UP>']
@@ -134,6 +134,7 @@ NeoBundle 'benekastah/neomake'
     let g:neomake_go_enabled_makers=['golint']
     let g:neomake_open_list=2
     let g:neomake_list_height=4
+    let g:neomake_sh_shellcheck_args=['-fgcc']
     autocmd! BufWritePost * Neomake
 NeoBundle 'majutsushi/tagbar'
 NeoBundleLazy 'marijnh/tern_for_vim', {
@@ -146,6 +147,7 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
 \     'unix' : 'npm install'
 \   }
 \ }
+NeoBundle 'Quramy/tsuquyomi'
 NeoBundle 'leafgarland/typescript-vim'
 
 " vimscripts.org

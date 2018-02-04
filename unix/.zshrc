@@ -4,9 +4,6 @@ ZSH_TMUX_AUTOSTART=true
 export TERM="screen-256color"
 
 # User configuration
-export PATH=$HOME/.linuxbrew/bin:$HOME/bin:/usr/local/bin:$PATH
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 export GOPATH=$HOME
 
 if [[ $(uname -o) == "Cygwin" ]]; then
@@ -75,13 +72,20 @@ fi
 eval `dircolors ~/.dircolors`
 eval "$(thefuck --alias)"
 
+if type ng > /dev/null; then
+    . <(ng completion --zsh)
+fi
+
 # For virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 source virtualenvwrapper.sh
 
+# Goddamn NFS
+export TEMPERATE_SHARED_FOLDER_TYPE='virtualbox'
+
 # Stop using vim, use Neovim
 alias vim='echo "Did you mean nvim?"'
 
 # added by travis gem
-[ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.sh
+[ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.zsh
