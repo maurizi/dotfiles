@@ -81,9 +81,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 source virtualenvwrapper.sh
 
-# Goddamn NFS
-export TEMPERATE_SHARED_FOLDER_TYPE='virtualbox'
-
 # Stop using vim, use Neovim
 alias vim='echo "Did you mean nvim?"'
 
