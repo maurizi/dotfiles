@@ -5,6 +5,7 @@ export TERM="screen-256color"
 
 # User configuration
 export GOPATH=$HOME
+export PATH="$HOME/bin:$PATH"
 
 if [[ $(uname -o) == "Cygwin" ]]; then
     export PYTHONHOME=/usr
