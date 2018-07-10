@@ -130,7 +130,7 @@ NeoBundle 'mutewinter/swap-parameters', {
 \ }
 NeoBundle 'benekastah/neomake'
     let g:neomake_python_enabled_makers=['flake8']
-    let g:neomake_javascript_enabled_makers=['jshint']
+    let g:neomake_javascript_enabled_makers=['eslint']
     let g:neomake_go_enabled_makers=['golint']
     let g:neomake_open_list=2
     let g:neomake_list_height=4
@@ -148,6 +148,9 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
 \   }
 \ }
 NeoBundle 'Quramy/tsuquyomi'
+    let g:tsuquyomi_completion_preview = 1
+    let g:tsuquyomi_ignore_missing_modules = 1
+    autocmd FileType typescript setlocal completeopt+=preview
 NeoBundle 'leafgarland/typescript-vim'
 
 " vimscripts.org
