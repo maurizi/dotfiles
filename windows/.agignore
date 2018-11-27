@@ -2,12 +2,11 @@
 *.pyc
 .vagrant
 .#*
-/static
-static/
 .coverage
 .sass-cache
 .idea/
 node_modules/
+*/node_modules/
 dist/
 fixtures/
 _bower_components/
