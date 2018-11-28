@@ -92,10 +92,10 @@ NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': 'python'}}
 NeoBundleLazy 'phildawes/racer', {
 \ 'external_commands': 'cargo',
 \ 'build' : {
-\    'windows' : 'cargo build --release',
-\    'cygwin' : 'cargo build --release',
-\    'mac' : 'cargo build --release',
-\    'unix' : 'cargo build --release',
+\    'windows' : 'cargo +nightly build --release',
+\    'cygwin' : 'cargo +nightly build --release',
+\    'mac' : 'cargo +nightly build --release',
+\    'unix' : 'cargo +nightly build --release',
 \ },
 \ 'autoload': {'filetypes': ['rust']}
 \ }
