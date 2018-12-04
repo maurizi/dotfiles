@@ -121,9 +121,7 @@ NeoBundle 'Valloric/YouCompleteMe', {
     let g:ycm_collect_identifiers_from_tags_files = 1
     let g:ycm_python_binary_path = 'python'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'mutewinter/swap-parameters', {
-\ 'disabled': !has('python2')
-\ }
+NeoBundle 'machakann/vim-swap'
 NeoBundle 'benekastah/neomake'
     let g:neomake_python_enabled_makers=['flake8']
     let g:neomake_javascript_enabled_makers=['eslint']
