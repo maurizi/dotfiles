@@ -90,16 +90,11 @@ NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': 'python'}}
     let g:pymode_rope_goto_definition_bind = '<leader>j'
     let g:pymode_rope_regenerate_on_write = 0  " Need to find a way to do this in the background
     let g:pymode_rope_extract_method_bind = '<leader>e'
-NeoBundleLazy 'phildawes/racer', {
-\ 'external_commands': 'cargo',
-\ 'build' : {
-\    'windows' : 'cargo build --release',
-\    'cygwin' : 'cargo build --release',
-\    'mac' : 'cargo build --release',
-\    'unix' : 'cargo build --release',
-\ },
+NeoBundleLazy 'racer-rust/vim-racer', {
+\ 'external_commands': 'racer',
 \ 'autoload': {'filetypes': ['rust']}
 \ }
+    let g:racer_experimental_completer = 1
 NeoBundle 'tpope/vim-rails'
 NeoBundleLazy 'tpope/vim-repeat', {'autoload': {'mappings': '.'}}
 NeoBundle 'wting/rust.vim'
