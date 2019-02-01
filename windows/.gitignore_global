@@ -1,3 +1,4 @@
 .ropeproject/
 .vimrc
 npm-debug.log
+.vscode/
