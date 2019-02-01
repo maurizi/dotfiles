@@ -34,12 +34,11 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'bdauria/angular-cli.vim'
     autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
 NeoBundle 'chase/vim-ansible-yaml'
-NeoBundle 'tpope/vim-bundler'
 NeoBundle 'mapbox/carto', { 'rtp': 'build/vim-carto/' }
 NeoBundle 'altercation/vim-colors-solarized'
     set t_Co=16
-NeoBundle 'takac/vim-commandcaps'
 NeoBundle 'ap/vim-css-color'
+NeoBundle 'takac/vim-commandcaps'
 NeoBundle 'maurizi/ctrlp.vim'
     let g:ctrlp_map = '<leader>t'
     " current buffers (default of <leader>b conflicts with py-mode)
