@@ -53,6 +53,9 @@ NeoBundle 'junegunn/vim-easy-align'
     vnoremap <silent> <Enter> :EasyAlign<Enter>
     vnoremap <silent> <Leader><Enter> :LiveEasyAlign<Enter>
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'sgur/vim-editorconfig'
+    let g:editorconfig_blacklist = {'filetype': ['git.*', 'fugitive']}
+    let g:editorconfig_verbose = 1
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'int3/vim-extradite'
 NeoBundle 'tpope/vim-fugitive'
@@ -151,7 +154,7 @@ NeoBundle 'tComment'
     " always put the comment in the first column
     let g:tcommentOptions = {'col':1}
 NeoBundleLazy 'AnsiEsc.vim', {'autoload': {'commands': 'AnsiEsc'}}
-NeoBundle 'restore_view.vim'
+" NeoBundle 'restore_view.vim'
 
 
 call neobundle#end()

@@ -208,7 +208,7 @@ autocmd FileType yaml setlocal sw=2 sts=2 ts=2 et
 
 " Syntax highlighting for HTML templates in TypeScript
 autocmd FileType typescript syn clear foldBraces
-autocmd FileType typescript JsPreTmpl html
+" autocmd FileType typescript JsPreTmpl html
 
 " 2-space indents for Typescript
 autocmd FileType typescript setlocal sw=2 sts=2 ts=2 et
