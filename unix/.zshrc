@@ -35,9 +35,12 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/tmux
     zgen oh-my-zsh plugins/virtualenvwrapper
     zgen oh-my-zsh plugins/aws
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/docker-compose
 
     zgen load maurizi/retag.rs
     zgen load steventlamb/kj completions/kj.plugin.zsh
+    zgen load gangleri/pipenv
 
     # Load completions
     zgen load petervanderdoes/git-flow-completion
@@ -84,6 +87,9 @@ source virtualenvwrapper.sh
 
 # Stop using vim, use Neovim
 alias vim='echo "Did you mean nvim?"'
+
+# Project vars
+export CC_PORT_8084=8085
 
 # added by travis gem
 [ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.zsh
