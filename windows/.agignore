@@ -1,5 +1,6 @@
 *.ai
 *.pyc
+*.svg
 .vagrant
 .#*
 .coverage
