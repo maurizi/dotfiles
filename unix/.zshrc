@@ -76,10 +76,6 @@ fi
 eval `dircolors ~/.dircolors`
 eval "$(thefuck --alias)"
 
-if type ng > /dev/null; then
-    . <(ng completion --zsh)
-fi
-
 # For virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects

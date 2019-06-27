@@ -50,7 +50,7 @@ sudo apt install -qqy nextcloud-client
 sudo apt install -qqy keepassxc
 
 # Android Studio requirements (emulator acceleration)
-sudo apt install -qqy qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+sudo apt install -qqy qemu-kvm bridge-utils
 
 # Android Studio requirements (SDK requirements)
 sudo apt install -qqy lib32stdc++6 lib32z1
