@@ -215,3 +215,7 @@ autocmd FileType typescript setlocal sw=2 sts=2 ts=2 et
 " Solarized needs to happen in vimrc for some reason...
 set background=dark
 colorscheme solarized
+
+" Prevent mkview / loadview from saving/loading variables
+" This is needed to make .editorconfig work properly
+set viewoptions=folds,cursor,curdir

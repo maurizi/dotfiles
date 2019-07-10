@@ -31,6 +31,15 @@ NeoBundle 'vim-airline/vim-airline'
     endif
     let g:airline_symbols.branch = 'λ'
 NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'w0rp/ale'
+    let g:ale_fixers = {
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'javascript': ['eslint'],
+    \}
+    let g:ale_fix_on_save = 1
+    let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+    let g:ale_sign_warning = '.'
+    let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 NeoBundle 'bdauria/angular-cli.vim'
     autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
 NeoBundle 'chase/vim-ansible-yaml'
@@ -56,6 +65,15 @@ NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'sgur/vim-editorconfig'
     let g:editorconfig_blacklist = {'filetype': ['git.*', 'fugitive']}
     let g:editorconfig_verbose = 1
+NeoBundleLazy 'mattn/emmet-vim', {
+\ 'autoload': {'filetypes': ['html', 'htmldjango', 'jsx']}
+\ }
+    let g:user_emmet_leader_key='<Tab>'
+    let g:user_emmet_settings = {
+      \  'javascript.jsx' : {
+        \      'extends' : 'jsx',
+        \  },
+      \}
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'int3/vim-extradite'
 NeoBundle 'tpope/vim-fugitive'
@@ -67,7 +85,8 @@ NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     let g:gundo_prefer_python3 = 1
     nnoremap <F5> :GundoToggle<CR>
-NeoBundleLazy 'Quramy/vim-js-pretty-template', {'autoload': {'filetypes': ['typescript']}}
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -101,11 +120,6 @@ NeoBundle 'tpope/vim-rails'
 NeoBundleLazy 'tpope/vim-repeat', {'autoload': {'mappings': '.'}}
 NeoBundle 'wting/rust.vim'
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundleLazy 'rstacruz/sparkup', {
-\ 'rtp': 'vim/',
-\ 'autoload': {'filetypes': ['html', 'xml', 'htmldjango']}
-\ }
-    let g:sparkupMapsNormal=1
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'Shougo/neocomplete', {
@@ -124,14 +138,6 @@ NeoBundle 'Valloric/YouCompleteMe', {
     let g:ycm_python_binary_path = 'python'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'machakann/vim-swap'
-NeoBundle 'benekastah/neomake'
-    let g:neomake_python_enabled_makers=['flake8']
-    let g:neomake_javascript_enabled_makers=['eslint']
-    let g:neomake_go_enabled_makers=['golint']
-    let g:neomake_open_list=2
-    let g:neomake_list_height=4
-    let g:neomake_sh_shellcheck_args=['-fgcc']
-    autocmd! BufWritePost * Neomake
 NeoBundle 'majutsushi/tagbar'
 NeoBundleLazy 'marijnh/tern_for_vim', {
 \ 'external_commands': ['npm', 'node'],
@@ -154,7 +160,7 @@ NeoBundle 'tComment'
     " always put the comment in the first column
     let g:tcommentOptions = {'col':1}
 NeoBundleLazy 'AnsiEsc.vim', {'autoload': {'commands': 'AnsiEsc'}}
-" NeoBundle 'restore_view.vim'
+NeoBundle 'restore_view.vim'
 
 
 call neobundle#end()
