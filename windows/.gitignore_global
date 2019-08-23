@@ -2,3 +2,4 @@
 .vimrc
 npm-debug.log
 .vscode/
+.idea/
