@@ -128,7 +128,7 @@ nnoremap <leader>p "_dP
 vnoremap <leader>p "_dP
 
 " Ignore the obvious things (also affects CtrlP when installed)
-set wildignore+=*.o,*.obj,*.pyc,*/node_modules/*,*min.js,*/generated/*,*/build/*,*/.ropeproject/*,*/dist/*,*/.tmp/*,*/_workspace/*,*/static/*,*/vendor/*
+set wildignore+=*.o,*.obj,*.pyc,*/node_modules/*,*/bower_components/*,*-min.js,*.min.js,*/generated/*,*/build/*,*/.ropeproject/*,*/dist/*,*/.tmp/*,*/_workspace/*,*/vendor/*,*/lib-dist/*,*/cicero/static/*,*/target/*
 
 " Mouse usage enabled in normal mode.
 set mouse=n
@@ -208,8 +208,14 @@ autocmd FileType yaml setlocal sw=2 sts=2 ts=2 et
 
 " Syntax highlighting for HTML templates in TypeScript
 autocmd FileType typescript syn clear foldBraces
-autocmd FileType typescript JsPreTmpl html
+
+" 2-space indents for Typescript
+autocmd FileType typescript setlocal sw=2 sts=2 ts=2 et
 
 " Solarized needs to happen in vimrc for some reason...
 set background=dark
 colorscheme solarized
+
+" Prevent mkview / loadview from saving/loading variables
+" This is needed to make .editorconfig work properly
+set viewoptions=folds,cursor,curdir

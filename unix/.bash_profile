@@ -13,3 +13,5 @@ if [ -f "$HOME/.profile" ]; then
 fi
 
 eval `dircolors ~/.dircolors`
+
+export PATH="$HOME/.cargo/bin:$PATH"

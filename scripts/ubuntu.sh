@@ -4,6 +4,9 @@
 
 set -e
 
+# Essentials, can't run the install scripts without em
+sudo apt-get install -qqy curl git stow python-setuptools python-dev build-essential python3-dev python-pip python3-pip
+
 # Neovim
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 # Node.js
@@ -11,10 +14,6 @@ sudo apt-get install -qqy curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 sudo apt-get update
-
-# Essentials, can't run the install scripts without em
-sudo apt-get install -qqy git stow python-setuptools python-dev build-essential python-software-properties python3-dev python-pip python3-pip
-
 
 # Personal tools
 sudo apt-get install -qqy tmux autojump vim-nox zsh
@@ -27,10 +26,11 @@ sudo pip3 install --upgrade thefuck
 sudo apt-get install -qqy silversearcher-ag
 
 # Stuff for vim plugins (YouCompleteMe, tern_for_vim)
-sudo apt-get install -qqy cmake nodejs
+sudo apt-get install -qqy cmake nodejs nodeenv npm
+sudo npm install -g jshint typescript @angular/cli
 
 # Need Rust for retag.rs
-curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- -y
+curl -sSf https://sh.rustup.rs -sSf | sh -s -- -y
 
 # go get Go
 sudo apt-get install -qqy golang
@@ -41,6 +41,9 @@ curl -L# https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-
 tar zvxvf hub.tgz
 sudo ./hub-linux-amd64-2.2.9/install
 popd
+
+# Home directory for small utilities
+mkdir -p ~/bin
 
 # kj/scripty
 mkdir ~/bin || true

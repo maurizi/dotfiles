@@ -1,7 +1,7 @@
 [push]
 	default = current
 [core]
-	editor = vim
+	editor = nvim
 	filemode = false
 	excludesfile = ~/.gitignore_global
 	trustctime = false

@@ -31,11 +31,22 @@ NeoBundle 'vim-airline/vim-airline'
     endif
     let g:airline_symbols.branch = 'λ'
 NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'w0rp/ale'
+    let g:ale_fixers = {
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'javascript': ['eslint'],
+    \}
+    let g:ale_fix_on_save = 1
+    let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+    let g:ale_sign_warning = '.'
+    let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+NeoBundle 'bdauria/angular-cli.vim'
+    autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
 NeoBundle 'chase/vim-ansible-yaml'
-NeoBundle 'tpope/vim-bundler'
 NeoBundle 'mapbox/carto', { 'rtp': 'build/vim-carto/' }
 NeoBundle 'altercation/vim-colors-solarized'
     set t_Co=16
+NeoBundle 'ap/vim-css-color'
 NeoBundle 'takac/vim-commandcaps'
 NeoBundle 'maurizi/ctrlp.vim'
     let g:ctrlp_map = '<leader>t'
@@ -51,6 +62,18 @@ NeoBundle 'junegunn/vim-easy-align'
     vnoremap <silent> <Enter> :EasyAlign<Enter>
     vnoremap <silent> <Leader><Enter> :LiveEasyAlign<Enter>
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'sgur/vim-editorconfig'
+    let g:editorconfig_blacklist = {'filetype': ['git.*', 'fugitive']}
+    let g:editorconfig_verbose = 1
+NeoBundleLazy 'mattn/emmet-vim', {
+\ 'autoload': {'filetypes': ['html', 'htmldjango', 'jsx']}
+\ }
+    let g:user_emmet_leader_key='<Tab>'
+    let g:user_emmet_settings = {
+      \  'javascript.jsx' : {
+        \      'extends' : 'jsx',
+        \  },
+      \}
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'int3/vim-extradite'
 NeoBundle 'tpope/vim-fugitive'
@@ -62,7 +85,8 @@ NeoBundle 'fatih/vim-go', {'external_commands': 'go'}
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
     let g:gundo_prefer_python3 = 1
     nnoremap <F5> :GundoToggle<CR>
-NeoBundleLazy 'Quramy/vim-js-pretty-template', {'autoload': {'filetypes': ['typescript']}}
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -87,53 +111,33 @@ NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': 'python'}}
     let g:pymode_rope_goto_definition_bind = '<leader>j'
     let g:pymode_rope_regenerate_on_write = 0  " Need to find a way to do this in the background
     let g:pymode_rope_extract_method_bind = '<leader>e'
-NeoBundleLazy 'phildawes/racer', {
-\ 'external_commands': 'cargo',
-\ 'build' : {
-\    'windows' : 'cargo build --release',
-\    'cygwin' : 'cargo build --release',
-\    'mac' : 'cargo build --release',
-\    'unix' : 'cargo build --release',
-\ },
+NeoBundleLazy 'racer-rust/vim-racer', {
+\ 'external_commands': 'racer',
 \ 'autoload': {'filetypes': ['rust']}
 \ }
+    let g:racer_experimental_completer = 1
 NeoBundle 'tpope/vim-rails'
 NeoBundleLazy 'tpope/vim-repeat', {'autoload': {'mappings': '.'}}
 NeoBundle 'wting/rust.vim'
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundleLazy 'rstacruz/sparkup', {
-\ 'rtp': 'vim/',
-\ 'autoload': {'filetypes': ['html', 'xml', 'htmldjango']}
-\ }
-    let g:sparkupMapsNormal=1
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'Shougo/neocomplete', {
 \ 'disabled': !has('win32unix')
 \ }
     let g:neocomplete#enable_at_startup = 1
-NeoBundleLazy 'Valloric/YouCompleteMe', {
+NeoBundle 'Valloric/YouCompleteMe', {
 \ 'disabled': has('win32unix'),
 \ 'build' : {
 \     'unix' : 'git submodule update --init --recursive; ./install.py --clang-completer --racer-completer --gocode-completer --tern-completer'
 \    },
-\ 'augroup': 'youcompletemeStart',
-\ 'autoload': {'insert': 1}
 \ }
     let g:ycm_autoclose_preview_window_after_completion = 1
     let g:ycm_key_list_previous_completion = ['<S-TAB>', '<C-TAB>', '<UP>']
     let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_python_binary_path = 'python'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'mutewinter/swap-parameters', {
-\ 'disabled': !has('python2')
-\ }
-NeoBundle 'benekastah/neomake'
-    let g:neomake_python_enabled_makers=['flake8']
-    let g:neomake_javascript_enabled_makers=['jshint']
-    let g:neomake_go_enabled_makers=['golint']
-    let g:neomake_open_list=2
-    let g:neomake_list_height=4
-    autocmd! BufWritePost * Neomake
+NeoBundle 'machakann/vim-swap'
 NeoBundle 'majutsushi/tagbar'
 NeoBundleLazy 'marijnh/tern_for_vim', {
 \ 'external_commands': ['npm', 'node'],
@@ -145,6 +149,10 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
 \     'unix' : 'npm install'
 \   }
 \ }
+NeoBundle 'Quramy/tsuquyomi'
+    let g:tsuquyomi_completion_preview = 1
+    let g:tsuquyomi_ignore_missing_modules = 1
+    autocmd FileType typescript setlocal completeopt+=preview
 NeoBundle 'leafgarland/typescript-vim'
 
 " vimscripts.org

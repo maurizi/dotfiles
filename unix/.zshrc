@@ -4,10 +4,8 @@ ZSH_TMUX_AUTOSTART=true
 export TERM="screen-256color"
 
 # User configuration
-export PATH=$HOME/.linuxbrew/bin:$HOME/bin:/usr/local/bin:$PATH
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 export GOPATH=$HOME
+export PATH="$HOME/bin:$PATH"
 
 if [[ $(uname -o) == "Cygwin" ]]; then
     export PYTHONHOME=/usr
@@ -37,9 +35,12 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/tmux
     zgen oh-my-zsh plugins/virtualenvwrapper
     zgen oh-my-zsh plugins/aws
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/docker-compose
 
     zgen load maurizi/retag.rs
     zgen load steventlamb/kj completions/kj.plugin.zsh
+    zgen load gangleri/pipenv
 
     # Load completions
     zgen load petervanderdoes/git-flow-completion
@@ -80,5 +81,11 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 source virtualenvwrapper.sh
 
+# Stop using vim, use Neovim
+alias vim='echo "Did you mean nvim?"'
+
+# Project vars
+export CC_PORT_8084=8085
+
 # added by travis gem
-[ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.sh
+[ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.zsh
