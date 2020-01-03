@@ -38,6 +38,11 @@ sudo apt-get install -qqy openjdk-8-jdk
 sudo apt-get install -qqy google-chrome-stable
 sudo apt-get install -qqy nfs-kernel-server
 
+# node version manager
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | zsh
+# yarn version manager
+curl -s https://raw.githubusercontent.com/tophat/yvm/master/scripts/install.js | node
+
 # Docker
 sudo apt-get install -qqy docker.io
 sudo pip install docker-compose
