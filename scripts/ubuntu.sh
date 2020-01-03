@@ -10,6 +10,7 @@ sudo apt-get install -qqy curl git stow python-setuptools python-dev build-essen
 # Neovim
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 # Node.js
+sudo apt-get install -qqy curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 sudo apt-get update
@@ -45,6 +46,7 @@ popd
 mkdir -p ~/bin
 
 # kj/scripty
+mkdir ~/bin || true
 curl -L# https://github.com/steventlamb/kj/releases/download/0.2.0/kj-x86_64-linux > ~/bin/kj
 chmod +x ~/bin/kj
 
