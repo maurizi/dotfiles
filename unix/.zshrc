@@ -7,6 +7,20 @@ export TERM="screen-256color"
 export GOPATH=$HOME
 export PATH="$HOME/bin:$PATH"
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# yvm
+export YVM_DIR=/home/local/AZVA-INT/mmaurizi/.yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+
+# pyenv
+export PATH="/home/local/AZVA-INT/mmaurizi/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 if [[ $(uname -o) == "Cygwin" ]]; then
     export PYTHONHOME=/usr
     export PYTHONPATH=/usr/lib/python2.7
@@ -33,7 +47,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/autojump
     zgen oh-my-zsh plugins/vagrant
     zgen oh-my-zsh plugins/tmux
-    zgen oh-my-zsh plugins/virtualenvwrapper
     zgen oh-my-zsh plugins/aws
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/docker-compose
@@ -41,6 +54,8 @@ if ! zgen saved; then
     zgen load maurizi/retag.rs
     zgen load steventlamb/kj completions/kj.plugin.zsh
     zgen load gangleri/pipenv
+    zgen load yonchu/zsh-python-prompt zshrc.zsh
+    zgen load dijitalmunky/nvm-auto nvm-auto.plugin.zsh
 
     # Load completions
     zgen load petervanderdoes/git-flow-completion
@@ -53,6 +68,10 @@ if ! zgen saved; then
     zgen save
 fi
 
+# Show pyenv info in prompt, cribbed from
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PS1='($(pyenv version-name)) '$PS1
+
 SSH_ENV=$HOME/.ssh/environment
 
 function start_ssh_agent {
@@ -63,7 +82,7 @@ function start_ssh_agent {
 }
 
 # Source SSH agent settings if it is already running, otherwise start
-# up the agent proprely.
+# up the agent properly.
 if [ -f "${SSH_ENV}" ]; then
     . ${SSH_ENV} > /dev/null
     ps -p ${SSH_AGENT_PID} > /dev/null || {
@@ -76,11 +95,6 @@ fi
 eval `dircolors ~/.dircolors`
 eval "$(thefuck --alias)"
 
-# For virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
-source virtualenvwrapper.sh
-
 # Stop using vim, use Neovim
 alias vim='echo "Did you mean nvim?"'
 
@@ -89,10 +103,3 @@ export CC_PORT_8084=8085
 
 # added by travis gem
 [ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export YVM_DIR=/home/local/AZVA-INT/mmaurizi/.yvm
-[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh

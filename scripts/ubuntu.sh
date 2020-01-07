@@ -26,7 +26,7 @@ sudo pip3 install --upgrade thefuck
 sudo apt-get install -qqy silversearcher-ag
 
 # Stuff for vim plugins (YouCompleteMe, tern_for_vim)
-sudo apt-get install -qqy cmake nodejs nodeenv npm
+sudo apt-get install -qqy cmake nodejs npm
 sudo npm install -g jshint typescript @angular/cli
 
 # Need Rust for retag.rs

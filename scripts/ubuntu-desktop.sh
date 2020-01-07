@@ -42,6 +42,16 @@ sudo apt-get install -qqy nfs-kernel-server
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | zsh
 # yarn version manager
 curl -s https://raw.githubusercontent.com/tophat/yvm/master/scripts/install.js | node
+# Python version manager
+sudo apt-get install -qqy libssl-dev zlib1g-dev libbz2-dev \
+    libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+    xz-utils tk-dev libffi-dev liblzma-dev python-openssl
+if [ ! -e ~/.pyenv ]
+then
+    curl https://pyenv.run | bash
+else
+    pyenv update
+fi
 
 # Docker
 sudo apt-get install -qqy docker.io
