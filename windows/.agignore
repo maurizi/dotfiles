@@ -17,6 +17,7 @@ cache/
 development.log
 coverage/
 public/assets/
+cicero/static/
 target/
 
 # .mo files are compiled, binary language files created
@@ -27,3 +28,4 @@ target/
 *.min.css
 treemap.js
 main.css
+*.dtsx
