@@ -111,11 +111,6 @@ NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': 'python'}}
     let g:pymode_rope_goto_definition_bind = '<leader>j'
     let g:pymode_rope_regenerate_on_write = 0  " Need to find a way to do this in the background
     let g:pymode_rope_extract_method_bind = '<leader>e'
-NeoBundleLazy 'racer-rust/vim-racer', {
-\ 'external_commands': 'racer',
-\ 'autoload': {'filetypes': ['rust']}
-\ }
-    let g:racer_experimental_completer = 1
 NeoBundle 'tpope/vim-rails'
 NeoBundleLazy 'tpope/vim-repeat', {'autoload': {'mappings': '.'}}
 NeoBundle 'wting/rust.vim'
@@ -129,7 +124,7 @@ NeoBundle 'Shougo/neocomplete', {
 NeoBundle 'Valloric/YouCompleteMe', {
 \ 'disabled': has('win32unix'),
 \ 'build' : {
-\     'unix' : 'git submodule update --init --recursive; ./install.py --clang-completer --racer-completer --gocode-completer --tern-completer'
+\     'unix' : 'git submodule update --init --recursive; ./install.py --clang-completer --rust-completer --go-completer --ts-completer'
 \    },
 \ }
     let g:ycm_autoclose_preview_window_after_completion = 1
