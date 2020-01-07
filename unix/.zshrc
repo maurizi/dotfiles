@@ -13,11 +13,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # yvm
-export YVM_DIR=/home/local/AZVA-INT/mmaurizi/.yvm
+export YVM_DIR="$HOME/.yvm"
 [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 
 # pyenv
-export PATH="/home/local/AZVA-INT/mmaurizi/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -103,3 +103,5 @@ export CC_PORT_8084=8085
 
 # added by travis gem
 [ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.zsh
+
+export YVM_DIR=/home/mike/.yvm
