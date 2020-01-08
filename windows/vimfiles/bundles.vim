@@ -149,6 +149,7 @@ NeoBundle 'Quramy/tsuquyomi'
     let g:tsuquyomi_ignore_missing_modules = 1
     autocmd FileType typescript setlocal completeopt+=preview
 NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'peitalin/vim-jsx-typescript'
 
 " vimscripts.org
 NeoBundle 'tComment'
