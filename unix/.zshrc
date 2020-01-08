@@ -68,9 +68,17 @@ if ! zgen saved; then
     zgen save
 fi
 
-# Show pyenv info in prompt, cribbed from
+# Show pyenv info in prompt
+function show_pyenv_version {
+    PYENV_VERSION="$(pyenv version-name)"
+    if [[ $PYENV_VERSION == "$(basename $(pwd))" ]]; then
+        echo "(🐍) "
+    elif [[ $PYENV_VERSION != "system" ]]; then
+        echo "(🐍 $PYENV_VERSION) "
+    fi
+}
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PS1='($(pyenv version-name)) '$PS1
+export PS1='$(show_pyenv_version)'$PS1
 
 SSH_ENV=$HOME/.ssh/environment
 
