@@ -72,7 +72,8 @@ fi
 function show_pyenv_version {
     PYENV_VERSION="$(pyenv version-name)"
     if [[ $PYENV_VERSION == "$(basename $(pwd))" ]]; then
-        echo "(🐍) "
+        PYTHON_VERSION="$(python --version | sed 's/Python //')"
+        echo "(🐍 $PYTHON_VERSION) "
     elif [[ $PYENV_VERSION != "system" ]]; then
         echo "(🐍 $PYENV_VERSION) "
     fi
