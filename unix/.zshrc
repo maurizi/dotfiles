@@ -111,6 +111,4 @@ alias vim='echo "Did you mean nvim?"'
 export CC_PORT_8084=8085
 
 # added by travis gem
-[ -f /home/mike/.travis/travis.sh ] && source /home/mike/.travis/travis.zsh
-
-export YVM_DIR=/home/mike/.yvm
+[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.zsh"
