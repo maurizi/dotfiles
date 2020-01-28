@@ -5,7 +5,7 @@ export TERM="screen-256color"
 
 # User configuration
 export GOPATH=$HOME
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:node_modules/.bin:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
