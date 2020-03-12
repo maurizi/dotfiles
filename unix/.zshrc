@@ -68,18 +68,38 @@ if ! zgen saved; then
     zgen save
 fi
 
-# Show pyenv info in prompt
-function show_pyenv_version {
+# Show pyenv & nvm info in prompt
+function show_lang_versions {
+    PYTHON_VERSION=""
+    NODE_VERSION=""
+
     PYENV_VERSION="$(pyenv version-name)"
     if [[ $PYENV_VERSION == "$(basename $(pwd))" ]]; then
         PYTHON_VERSION="$(python --version | sed 's/Python //')"
-        echo "(🐍 $PYTHON_VERSION) "
     elif [[ $PYENV_VERSION != "system" ]]; then
-        echo "(🐍 $PYENV_VERSION) "
+        PYTHON_VERSION="$PYENV_VERSION"
+    fi
+    NVM_VERSION="$(nvm version)"
+    NVM_DEFAULT_VERSION="$(nvm version default)"
+    if [[ $NVM_VERSION != $NVM_DEFAULT_VERSION ]]; then
+        NODE_VERSION="$NVM_VERSION"
+    fi
+    if [[ $NODE_VERSION != "" ]] || [[ $PYTHON_VERSION != "" ]]; then
+        printf "("
+        if [[ $PYTHON_VERSION != "" ]]; then
+            printf "🐍 $PYTHON_VERSION"
+        fi
+        if [[ $NODE_VERSION != "" ]] && [[ $PYTHON_VERSION != "" ]]; then
+            printf " : "
+        fi
+        if [[ $NODE_VERSION != "" ]]; then
+            printf "⬡ $NODE_VERSION"
+        fi
+        echo ") "
     fi
 }
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PS1='$(show_pyenv_version)'$PS1
+export PS1='$(show_lang_versions)'$PS1
 
 SSH_ENV=$HOME/.ssh/environment
 
