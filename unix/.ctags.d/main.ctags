@@ -1,5 +1,9 @@
 --exclude=*min.js
+--exclude=*min.css
+--exclude=*.md
 --exclude=*bundle.js
+--exclude=*.json
+--exclude=*.geojson
 --exclude=*.o
 --exclude=*.obj
 --exclude=*.pyc
