@@ -33,12 +33,6 @@ cd $DOTFILES
 
 stow -v -t ~ unix
 
-if which sudo; then
-    sudo pip install --upgrade virtualenvwrapper
-else
-    pip install --upgrade virtualenvwrapper
-fi
-
 if [ ! -e ~/.zgen ]
 then
     echo "Cloning zgen"

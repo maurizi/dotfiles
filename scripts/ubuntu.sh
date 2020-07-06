@@ -3,23 +3,20 @@
 # Scripts for ubuntu command-line usage
 
 set -e
+set -x
 
 # Essentials, can't run the install scripts without em
-sudo apt-get install -qqy curl git stow python-setuptools python-dev build-essential python3-dev python-pip python3-pip
+sudo apt-get install -qqy curl git stow python-setuptools python-dev build-essential python3-dev python3-pip
 
 # Neovim
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
-# Node.js
-sudo apt-get install -qqy curl
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 sudo apt-get update
 
 # Personal tools
-sudo apt-get install -qqy tmux autojump vim-nox zsh
+sudo apt-get install -qqy tmux autojump zsh curl
 
 sudo apt-get install -qqy neovim
-sudo pip2 install --upgrade neovim
 sudo pip3 install --upgrade neovim
 sudo pip3 install --upgrade thefuck
 
@@ -27,7 +24,7 @@ sudo apt-get install -qqy silversearcher-ag
 
 # Stuff for vim plugins (YouCompleteMe, tern_for_vim)
 sudo apt-get install -qqy cmake nodejs npm
-sudo npm install -g jshint typescript @angular/cli
+sudo npm install -g jshint typescript
 
 # Need Rust for retag.rs
 curl -sSf https://sh.rustup.rs -sSf | sh -s -- -y
