@@ -154,5 +154,20 @@ alias vim='echo "Did you mean nvim?"'
 # Project vars
 export CC_PORT_8084=8085
 
+# WSL fixes
+if [[ -v WSLENV ]]; then
+    # Enable (semi-working) vagrant
+    export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+
+    # Connect to Windows XServer
+    export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+    export LIBGL_ALWAYS_INDIRECT=1
+    pushd -q /mnt/c
+        # Set up some env variables
+        export USERPROFILE="$(wslpath $(cmd.exe /C "echo %USERPROFILE%" | tr -d '\r'))"
+    popd -q
+fi
+
+
 # added by travis gem
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.zsh"
