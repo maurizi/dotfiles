@@ -4,7 +4,7 @@ if [[ ! -v VSCODE_IPC_HOOK_CLI ]]; then
 fi
 
 # Fix colors in tmux
-export TERM="screen-256color"
+export TERM="xterm-256color"
 
 # User configuration
 export GOPATH=$HOME
