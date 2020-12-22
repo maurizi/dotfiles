@@ -218,3 +218,5 @@ colorscheme solarized
 " Prevent mkview / loadview from saving/loading variables
 " This is needed to make .editorconfig work properly
 set viewoptions=folds,cursor,curdir
+
+autocmd VimLeave * silent !echo -ne "\x1b[\x35 q"
