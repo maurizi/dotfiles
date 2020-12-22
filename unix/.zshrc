@@ -24,6 +24,9 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# rustup
+export PATH="$HOME/.cargo/bin:$PATH"
+
 if [[ $(uname -o) == "Cygwin" ]]; then
     export PYTHONHOME=/usr
     export PYTHONPATH=/usr/lib/python2.7
