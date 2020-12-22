@@ -174,3 +174,5 @@ fi
 
 # added by travis gem
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.zsh"
+
+export YVM_DIR=/home/mike/.yvm
