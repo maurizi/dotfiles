@@ -14,4 +14,4 @@ fi
 
 eval `dircolors ~/.dircolors`
 
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
