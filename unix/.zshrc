@@ -165,6 +165,7 @@ if [[ -v WSLENV ]]; then
     # Connect to Windows XServer
     export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
     export LIBGL_ALWAYS_INDIRECT=1
+    export BROWSER=$(wslpath "$(reg.exe QUERY 'HKEY_CLASSES_ROOT\htmlfile\shell\open\command' /ve | tail -n +3 | sed 's/    (Default)    REG_SZ    //' | sed 's/ %1//' |  tr -d '\r\n' | sed 's/^"//' | sed 's/"$//')")
     pushd -q /mnt/c
         # Set up some env variables
         export USERPROFILE="$(wslpath $(cmd.exe /C "echo %USERPROFILE%" | tr -d '\r'))"
