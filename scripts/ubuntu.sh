@@ -6,10 +6,15 @@ set -e
 set -x
 
 # Essentials, can't run the install scripts without em
+sudo apt update
 sudo apt-get install -qqy curl git stow python-setuptools python-dev build-essential python3-dev python3-pip
 
 # Neovim
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
+
+# Github CLI
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
 sudo apt-get update
 
@@ -17,6 +22,7 @@ sudo apt-get update
 sudo apt-get install -qqy tmux autojump zsh curl
 
 sudo apt-get install -qqy neovim
+sudo apt-get install -qqy gh
 sudo pip3 install --upgrade neovim
 sudo pip3 install --upgrade thefuck
 
