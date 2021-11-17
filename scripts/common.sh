@@ -43,4 +43,5 @@ then
     echo "Cloning NeoBundle"
     git clone --quiet git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
-~/.vim/bundle/neobundle.vim/bin/neoinstall
+nvim -N -u ~/.vimrc -c "try | NeoBundleUpdate! $* | finally | qall! | endtry" \
+        -U NONE -i NONE -V1 -e -s
