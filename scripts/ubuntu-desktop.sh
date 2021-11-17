@@ -17,6 +17,12 @@ sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/de
 wget -q -O - https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 
+# VS Code
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+
 # KeepassXC, because fuck managing a billion mono libs
 sudo add-apt-repository -y ppa:phoerious/keepassxc
 
@@ -26,8 +32,9 @@ sudo add-apt-repository -y ppa:nextcloud-devs/client
 sudo apt-get update
 
 # Development
-sudo apt-get install -qqy virtualbox-6.0 dkms linux-headers-$(uname -r)
+sudo apt-get install -qqy virtualbox virtualbox-dkms linux-headers-$(uname -r)
 sudo apt-get install -qqy google-chrome-stable
+sudo apt-get install -qqy code
 
 # Docker
 sudo apt-get install -qqy docker.io
@@ -37,7 +44,7 @@ sudo groupadd docker || true
 sudo usermod -aG docker $USER
 
 # Virtualbox guest additions
-wget -q -O /tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack https://download.virtualbox.org/virtualbox/6.0.4/Oracle_VM_VirtualBox_Extension_Pack-6.0.4.vbox-extpack
+wget -q -O /tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack https://download.virtualbox.org/virtualbox/6.1.26/Oracle_VM_VirtualBox_Extension_Pack-6.1.26.vbox-extpack
 sudo VBoxManage extpack uninstall "Oracle VM VirtualBox Extension Pack"
 yes | sudo VBoxManage extpack install /tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack
 
