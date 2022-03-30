@@ -58,7 +58,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/docker-compose
 
     zgen load maurizi/retag.rs
-    zgen load steventlamb/kj completions/kj.plugin.zsh
     zgen load gangleri/pipenv
     zgen load yonchu/zsh-python-prompt zshrc.zsh
 

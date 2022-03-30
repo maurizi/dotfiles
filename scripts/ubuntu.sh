@@ -69,9 +69,4 @@ popd
 # Home directory for small utilities
 mkdir -p ~/bin
 
-# kj/scripty
-mkdir ~/bin || true
-curl -L# https://github.com/steventlamb/kj/releases/download/0.2.0/kj-x86_64-linux > ~/bin/kj
-chmod +x ~/bin/kj
-
 source $(dirname $0)/common.sh
