@@ -64,7 +64,7 @@ if ! zgen saved; then
     # Load completions
     zgen load petervanderdoes/git-flow-completion
     zgen load zsh-users/zsh-completions src
-    zgen load mitchellh/packer contrib/zsh-completion
+    zgen load hashicorp/packer contrib/zsh-completion main
 
     zgen oh-my-zsh themes/nanotech
 
