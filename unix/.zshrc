@@ -1,5 +1,5 @@
 # Autostart tmux, but not if we're in a tiny IDE terminal window
-if [[ ! -v VSCODE_IPC_HOOK_CLI ]]; then
+if [[ $TERM_PROGRAM != "vscode" ]]; then
     ZSH_TMUX_AUTOSTART=true
 fi
 
