@@ -16,7 +16,6 @@ if !empty($VIRTUAL_ENV)
     map <F3> :!ctags -R -f $VIRTUAL_ENV/tags $VIRTUAL_ENV/lib/python2.7/site-packages<CR>
 endif
 
-
 source $VIMHOME/bundles.vim
 silent! source $VIMHOME/secret.vim
 syntax on

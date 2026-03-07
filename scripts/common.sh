@@ -36,12 +36,12 @@ stow -v -t ~ unix
 if [ ! -e ~/.zgen ]
 then
     echo "Cloning zgen"
-    git clone --quiet git://github.com/tarjoilija/zgen.git ~/.zgen
+    git clone --quiet https://github.com/tarjoilija/zgen.git ~/.zgen
 fi
 if [ ! -e ~/.vim/bundle/neobundle.vim ]
 then
     echo "Cloning NeoBundle"
-    git clone --quiet git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+    git clone --quiet https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
 nvim -N -u ~/.vimrc -c "try | NeoBundleUpdate! $* | finally | qall! | endtry" \
         -U NONE -i NONE -V1 -e -s

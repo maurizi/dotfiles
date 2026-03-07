@@ -57,7 +57,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/docker-compose
 
-    zgen load maurizi/retag.rs
     zgen load gangleri/pipenv
     zgen load yonchu/zsh-python-prompt zshrc.zsh
 
@@ -147,7 +146,12 @@ else
     start_ssh_agent
 fi
 
-eval `dircolors ~/.dircolors`
+# macOS (via coreutils gdircolors) and Linux dircolors support
+if command -v gdircolors &>/dev/null; then
+    eval "$(gdircolors ~/.dircolors)"
+elif command -v dircolors &>/dev/null; then
+    eval "$(dircolors ~/.dircolors)"
+fi
 eval "$(thefuck --alias)"
 
 # Stop using vim, use Neovim
