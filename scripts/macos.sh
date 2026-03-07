@@ -34,7 +34,7 @@ brew install \
     node \
     autojump \
     go \
-    openjdk \
+    openjdk@21 \
     thefuck \
     wget \
     reattach-to-user-namespace \
@@ -86,6 +86,8 @@ brew install --cask \
     adobe-acrobat-reader \
     maccy \
     utm \
+    claude-code \
+    android-studio \
     kap            # macOS screen-to-gif equivalent of screentogif
 
 # Modern equivalent to Synergy
