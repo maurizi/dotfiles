@@ -88,6 +88,7 @@ brew install --cask \
     utm \
     claude-code \
     android-studio \
+    stats \
     kap            # macOS screen-to-gif equivalent of screentogif
 
 # Modern equivalent to Synergy
@@ -112,6 +113,11 @@ brew install ffmpeg
 # ── Nextcloud client ───────────────────────────────────────────────────────────
 brew install --cask nextcloud
 
+
+# ── iTerm2 preferences ─────────────────────────────────────────────────────────
+# Load prefs from dotfiles instead of ~/Library/Preferences
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/iterm2"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 # ── ~/bin ──────────────────────────────────────────────────────────────────────
 mkdir -p ~/bin

@@ -19,6 +19,16 @@ elif [[ -d /opt/homebrew/opt/openjdk ]]; then
     export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
+# Android SDK
+if [[ -d "$HOME/Library/Android/sdk" ]]; then
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
+elif [[ -d "$HOME/Android/Sdk" ]]; then
+    export ANDROID_HOME="$HOME/Android/Sdk"
+fi
+if [[ -n "$ANDROID_HOME" ]]; then
+    export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH"
+fi
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

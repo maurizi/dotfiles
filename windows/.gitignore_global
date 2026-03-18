@@ -3,5 +3,6 @@
 npm-debug.log
 .vscode/
 .idea/
+.claude/
 .python-version
 .DS_Store
