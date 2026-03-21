@@ -38,6 +38,8 @@ brew install \
     thefuck \
     wget \
     reattach-to-user-namespace \
+    poppler \  # PDF library, Claude wanted it
+    gcloud-cli
     coreutils   # provides gdircolors, a drop-in for Linux's dircolors
 
 
