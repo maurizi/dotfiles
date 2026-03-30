@@ -1,69 +1,55 @@
 #!/bin/bash
 
-# Scripts for GUI programs
+# Scripts for Ubuntu desktop / GUI programs (tested on 24.04 LTS)
 
 set -e
 set -x
 
-# Google Chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+# ── Google Chrome ─────────────────────────────────────────────────────────────
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --yes --dearmor -o /etc/apt/keyrings/google-chrome.gpg
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list > /dev/null
 
-# Newer virtualbox
-wget -q -O - https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" > /etc/apt/sources.list.d/virtualbox.list'
+# ── VirtualBox ────────────────────────────────────────────────────────────────
+curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --dearmor -o /etc/apt/keyrings/virtualbox.gpg
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/virtualbox.gpg] https://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list > /dev/null
 
-# Newer vagrant (NOTE: unofficial apt-get repo)
-wget -q -O - https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+# ── VS Code ───────────────────────────────────────────────────────────────────
+# Clean up old key/source files (previous installs and VS Code's own updater leave these behind)
+sudo rm -f /usr/share/keyrings/microsoft.gpg /etc/apt/trusted.gpg.d/packages.microsoft.gpg
+sudo rm -f /etc/apt/sources.list.d/vscode.sources /etc/apt/sources.list.d/vscode.list.save
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --yes --dearmor -o /etc/apt/keyrings/microsoft.gpg
+echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 
-# VS Code
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
-
-# KeepassXC, because fuck managing a billion mono libs
-sudo add-apt-repository -y ppa:phoerious/keepassxc
-
-# Nextcloud client
-sudo add-apt-repository -y ppa:nextcloud-devs/client
+# ── HashiCorp (Vagrant) ──────────────────────────────────────────────────────
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --yes --dearmor -o /etc/apt/keyrings/hashicorp.gpg
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list > /dev/null
 
 sudo apt-get update
 
-# Development
-sudo apt-get install -qqy virtualbox virtualbox-dkms linux-headers-$(uname -r)
+# ── Desktop apps ──────────────────────────────────────────────────────────────
 sudo apt-get install -qqy google-chrome-stable
 sudo apt-get install -qqy code
+sudo apt-get install -qqy virtualbox virtualbox-dkms linux-headers-$(uname -r)
+sudo apt-get install -qqy vagrant
 
-# Docker
-sudo apt-get install -qqy docker.io
-sudo wget -q -O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m`
-sudo chmod +x /usr/local/bin/docker-compose
+# ── Docker (from Ubuntu repos — includes Compose V2 plugin) ─────────────────
+sudo apt-get install -qqy docker.io docker-compose-v2
 sudo groupadd docker || true
 sudo usermod -aG docker $USER
 
-# Virtualbox guest additions
-wget -q -O /tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack https://download.virtualbox.org/virtualbox/6.1.32/Oracle_VM_VirtualBox_Extension_Pack-6.1.32.vbox-extpack
-sudo VBoxManage extpack uninstall "Oracle VM VirtualBox Extension Pack"
-yes | sudo VBoxManage extpack install /tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack
-
-# Utilities
-sudo apt-get install -qqy gnome-tweak-tool unity-tweak-tool
+# ── Utilities ─────────────────────────────────────────────────────────────────
+sudo apt-get install -qqy gnome-tweaks
 sudo apt-get install -qqy vlc
-sudo apt-get install -qqy pidgin pidgin-otr
 sudo apt-get install -qqy redshift-gtk
 
-# Download stuff
+# ── Download stuff ────────────────────────────────────────────────────────────
 sudo apt-get install -qqy openvpn
 sudo apt-get install -qqy qbittorrent
 
-# Keepass stuff
-sudo apt-get install -qqy nextcloud-client
+# ── KeePass + sync ───────────────────────────────────────────────────────────
+sudo apt-get install -qqy nextcloud-desktop
 sudo apt-get install -qqy keepassxc
 
-# Android Studio requirements (emulator acceleration)
+# ── Android Studio requirements ──────────────────────────────────────────────
 sudo apt-get install -qqy qemu-kvm bridge-utils
-
-# Android Studio requirements (SDK requirements)
-sudo apt-get install -qqy lib32stdc++6 lib32z1

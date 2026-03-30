@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:github.com)",
-      "Bash(defaults read:*)"
+      "Bash(defaults read:*)",
+      "Bash(lsb_release -a)",
+      "Read(//usr/lib/**)",
+      "Read(//etc/apt/sources.list.d/**)"
     ]
   }
 }
