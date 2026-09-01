@@ -8,7 +8,7 @@ export TERM="xterm-256color"
 
 # User configuration
 export GOPATH=$HOME
-export PATH="$HOME/bin:node_modules/.bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:node_modules/.bin:$PATH"
 
 # Java (Homebrew openjdk@21 — Gradle 8.x requires Java 17-21, not 25)
 if [[ -d /opt/homebrew/opt/openjdk@21 ]]; then

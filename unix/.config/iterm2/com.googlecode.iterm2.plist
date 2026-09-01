@@ -26,6 +26,8 @@
 	<string>https://api.openai.com/v1/responses</string>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AutodetectMouseReportingStuck</key>
+	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>6B11BA69-F90C-4CB1-91F5-7F7B7A3A82ED</string>
 	<key>HapticFeedbackForEsc</key>
@@ -911,9 +913,14 @@
 				<dict>
 					<key>Action</key>
 					<integer>10</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>1</integer>
 					<key>Text</key>
-					<string>
-</string>
+					<string>[13;2u</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
 			</dict>
 			<key>Link Color</key>
